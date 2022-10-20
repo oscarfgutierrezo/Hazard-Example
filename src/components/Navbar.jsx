@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { BellIcon, NotebookIcon } from "../icons"
+import { BellIcon } from "../icons"
 import { HamburgerIcon } from "../icons/HamburgerIcon"
 import { NavbarMenuCollapsible, NavbarNotifications } from "./"
 
@@ -9,33 +9,33 @@ export const Navbar = () => {
   const [isOpenedNotifications, setIsOpenedNotifications] = useState(false)
 
   const handleToggleMenu = () => {
-    setIsOpenedMenu(!isOpenedMenu)
-    console.log(isOpenedMenu);
+    setIsOpenedMenu(!isOpenedMenu);
   }
   const handleToggleNotifications = () => {
-    setIsOpenedNotifications(!isOpenedNotifications)
-    console.log(isOpenedNotifications);
+    setIsOpenedNotifications(!isOpenedNotifications);
   }
   
   return (
-    <nav className="relative pb-3 flex flex-col gap-5 border-b">
-      <div className="flex justify-between items-center">
-        <img className="w-10" src="./src/assets/logo.png" alt="Logo" />
-        <div>
-          <button className="relative" onClick={ handleToggleNotifications }>
+    <nav className="relative w-full h-min py-3 grid grid-cols-2 items-center gap-2 border-b sm:grid-cols-6 md:px-10">
+      <div className="w-10 col-span-1 order-0 md:hidden">
+        <img className="" src="./src/assets/logo.png" alt="Logo" />
+      </div>
+      <div className="col-span-1 justify-self-end order-1 sm:order-2">
+        <div className="relative inline-flex">
+          <button className="relative duration-300 hover:text-pink" onClick={ handleToggleNotifications }>
             <BellIcon/>
             <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full text-sm text-white leading-tight bg-red-500">3</span>
-            <NavbarNotifications isOpened={ isOpenedNotifications } />
           </button>
-          <button className="ml-3" onClick={ handleToggleMenu }>
-            <HamburgerIcon/>
-          </button>
+          <NavbarNotifications isOpened={ isOpenedNotifications } />
         </div>
+        <button className="ml-3 p-0.5 border border-transparent rounded-md duration-300 hover:text-pink hover:border-lightpurple md:hidden" onClick={ handleToggleMenu }>
+          <HamburgerIcon/>
+        </button>
       </div>
       <NavbarMenuCollapsible isOpened={ isOpenedMenu } />
-      <div className="text-center">
+      <div className="col-span-2 flex flex-col text-center order-4 sm:col-span-4 sm:order-1 sm:text-left md:col-span-5 md:flex-row md:items-baseline">
         <h2 className="text-2xl font-bold text-black-900">Hola,<span className="font-normal"> Andrea Sotil</span></h2>
-        <p className="text-black-300 font-medium">Tienes <span className="text-blue">3 alertas</span> esperando por ti</p>
+        <p className="text-black-300 font-medium md:pl-6">Tienes <span className="text-blue">3 alertas</span> esperando por ti</p>
       </div>
     </nav>
   )

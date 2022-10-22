@@ -1,4 +1,17 @@
+import { useState } from "react";
+import { data } from "../data/data";
+import { ArrowDownIcon } from "../icons/ArrowDownIcon";
+
 export const BillsSection = () => {
+  const [isOpenedFoliosFilter, setIsOpenedFoliosFilter] = useState({ isOpened: false, item: ''});
+
+  const handleToggleFoliosFilter = ({ target }) => {
+    setIsOpenedFoliosFilter({
+      isOpened: ( isOpenedFoliosFilter.item === target.value ) ? !isOpenedFoliosFilter.isOpened : true,
+      item: target.value,
+    });
+  };
+  
   return (
     <div className="col-span-5 grid grid-cols-3 gap-4">
       <div className="col-span-5">
@@ -11,39 +24,35 @@ export const BillsSection = () => {
         <table className="w-full py-3 text-sm text-black-500">
           <thead className="text-black-700">
             <tr>
-              <th></th>
-              <th>N° Folio</th>
-              <th>Proveedor</th>
-              <th>Tipo</th>
-              <th>Monto</th>
-              <th>Fecha de pago</th>
+              <th className="py-3 px-4 bg-lightpurple whitespace-nowrap text-left"><input type="radio" name="" id=""/></th>
+              {
+                data.tableData.columns.map( option => (
+                  <th className="relative min-w-[110px] py-3 px-4 bg-lightpurple whitespace-nowrap text-left" >
+                    <button type="button" className="w-full flex justify-between items-center gap-4" value={option} onClick={ handleToggleFoliosFilter }>{option}
+                      <ArrowDownIcon/>
+                    </button>
+                    <ul className={`${ (isOpenedFoliosFilter.isOpened && isOpenedFoliosFilter.item === option)  ? 'max-h-40' : 'max-h-0'} absolute top-9 right-0 w-max text-sm font-normal bg-white rounded-md shadow-lg z-10 transition-all duration-500 overflow-hidden ease-in-out` }>
+                      <li><button className="w-full py-1 px-3 text-black-500 border-b duration-300 cursor-pointer hover:bg-lightpurple hover:text-pink">Ascendente</button></li>
+                      <li><button className="w-full py-1 px-3 text-black-500 border-b duration-300 cursor-pointer hover:bg-lightpurple hover:text-pink">Descendente</button></li>
+                    </ul>
+                  </th>
+                ))
+              }
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><input type="radio" name="" id="" /></td>
-              <td>6574743</td>
-              <td>Soc.Import.Y Export.Bash.Ltda</td>
-              <td>Cedida</td>
-              <td>$100.448.159</td>
-              <td>Fecha de pago</td>
-            </tr>
-            <tr>
-              <td><input type="radio" name="" id="" /></td>
-              <td>6574743</td>
-              <td>Soc.Import.Y Export.Bash.Ltda</td>
-              <td>Cedida</td>
-              <td>$100.448.159</td>
-              <td>Fecha de pago</td>
-            </tr>
-            <tr>
-              <td><input type="radio" name="" id="" /></td>
-              <td>6574743</td>
-              <td>Soc.Import.Y Export.Bash.Ltda</td>
-              <td>Cedida</td>
-              <td>$100.448.159</td>
-              <td>Fecha de pago</td>
-            </tr>
+            {
+              data.tableData.rows.map( row => (
+                <tr>
+                  <td><input type="radio" name="" id={row.folio} /></td>
+                  <td>{row.folio}</td>
+                  <td>{row.proveedor}</td>
+                  <td>{row.tipo}</td>
+                  <td>{row.monto}</td>
+                  <td>{row.fechaPago}</td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </div>

@@ -60,7 +60,6 @@ export const LineChart = () => {
     }
   }
   
-  console.log(userData.datasets);
   return (
     <Line data={ userData } options={ options } />
   )

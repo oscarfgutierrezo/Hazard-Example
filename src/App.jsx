@@ -1,4 +1,5 @@
 import { Navbar, Sidebar, ChartSection } from "./components";
+import { BillsSection } from "./components/BillsSection";
 
 export const App = () => {  
   return (
@@ -6,8 +7,9 @@ export const App = () => {
       <Sidebar/>
       <div className="w-full">
         <Navbar/>
-        <div className="py-10 md:px-10">
+        <div className="grid grid-cols-5 gap-y-10 py-10 md:px-10">
           <ChartSection/>
+          <BillsSection/>
         </div>
       </div>
     </div>

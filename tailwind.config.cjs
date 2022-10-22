@@ -12,7 +12,7 @@ module.exports = {
           700: '#424346',
           900: '#2d2c2e',
         },
-        pink: '#d955f8 ',
+        pink: '#d955f8',
         orange: '#ebaf6f',
         purple: '#605fe9',
         blue: '#6c8ce2',

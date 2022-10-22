@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --chart-bg-color: rgba(255,99,132,0.4);
+  --chart-border-color: red;
+  --chart-border-width: 5
+}
+
 html {
   font-size: 16px;
   font-family: 'Roboto', sans-serif;

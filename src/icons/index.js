@@ -1,3 +1,4 @@
+export * from './ArrowDownIcon';
 export * from './HamburgerIcon';
 export * from './HomeIcon';
 export * from './NotebookIcon';

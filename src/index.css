@@ -15,8 +15,17 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
-table td {
+.bill-section table td {
   padding: 12px 16px;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.payments-section table td {
+  padding: 8px 16px 8px 0px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #7e7d83;
   white-space: nowrap;
   text-align: left;
 }

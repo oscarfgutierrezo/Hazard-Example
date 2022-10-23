@@ -6,3 +6,5 @@ export * from './itemsNavigation';
 export * from './LineChart';
 export * from './ChartSection';
 export * from './ChartMenuFilter';
+export * from './BillsSection';
+export * from './PaymentsSection';

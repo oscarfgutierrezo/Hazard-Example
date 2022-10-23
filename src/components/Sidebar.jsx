@@ -2,7 +2,7 @@ import { itemsNavigation } from "./itemsNavigation";
 
 export const Sidebar = () => {
   return (
-    <div className="hidden h-screen py-3 pr-5 border-r md:flex md:flex-col md:items-center md:gap-10">
+    <div className="hidden py-3 pr-5 border-r md:flex md:flex-col md:items-center md:gap-10">
       <div className="w-10">
         <img src="./src/assets/logo.png" alt="Logo" />
       </div>

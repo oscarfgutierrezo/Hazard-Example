@@ -5,32 +5,23 @@ import { data } from "../data/data";
 
 ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
 
-export const LineChart = () => {
+export const LineChart = ({ items }) => {
+
   const [userData, setUserData] = useState({
     labels: data.chartData.labels,
-    datasets: 
-    [{
-      label: 'Item1',
-      data: data.chartData.item1,
-      borderColor: '#d955f8',
-      backgroundColor: '#d955f820',
-      borderWidth: 2,
-      tension: 0.4,
-      radius: '0',
-      pointStyle: 'none',
-      fill: true,
-    },
-    {
-      label: 'Item1',
-      data: data.chartData.item2,
-      borderColor: '#ebaf6f',
-      backgroundColor: '#ebaf6f20',
-      borderWidth: 2,
-      tension: 0.4,
-      radius: '0',
-      pointStyle: 'none',
-      fill: true,
-    }],
+    datasets: items.map( item => (
+      {
+        label: item.name,
+        data: item.data,
+        borderColor: item.borderColor,
+        backgroundColor: item.backgroundColor,
+        borderWidth: 2,
+        tension: 0.4,
+        radius: '0',
+        pointStyle: 'none',
+        fill: true,
+      }
+    ))
   })
 
   const options = {

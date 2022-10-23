@@ -2,8 +2,13 @@ import { LineChart } from "./LineChart";
 import { ArrowDownIcon } from "../icons";
 import { useState } from "react";
 import { ChartMenuFilter } from "./ChartMenuFilter";
+import { buildChartData } from "../helpers";
+import { data } from "../data/data";
 
 export const ChartSection = () => {
+  const items = buildChartData(data.chartData);
+  console.log(items);
+    
   const [isOpenedChartFilter, setIsOpenedChartFilter] = useState(false);
 
   const handleToggleChartFilter = () => {
@@ -35,7 +40,7 @@ export const ChartSection = () => {
           </div>
         </div>
         <div className="col-span-3 w-full h-60 sm:order-4 lg:h-80 xl:h-60" >
-          <LineChart/>
+          <LineChart items={ items } />
         </div>
       </div>
     </section>

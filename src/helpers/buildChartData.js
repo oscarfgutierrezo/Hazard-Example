@@ -7,9 +7,10 @@ export const buildChartData = (data) => {
     if (key.includes('item')) {
       const { rgb, rgba } = randomColor(key)
       items = [ ...items, {
+        id: key.slice(4),
         name: key,
         data: value,
-        borderColor: rgb,
+        color: rgb,
         backgroundColor: rgba,
       }] 
     }

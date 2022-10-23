@@ -13,7 +13,7 @@ export const LineChart = ({ items }) => {
       {
         label: item.name,
         data: item.data,
-        borderColor: item.borderColor,
+        borderColor: item.color,
         backgroundColor: item.backgroundColor,
         borderWidth: 2,
         tension: 0.4,

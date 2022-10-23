@@ -8,3 +8,4 @@ export * from './ChartSection';
 export * from './ChartMenuFilter';
 export * from './BillsSection';
 export * from './PaymentsSection';
+export * from './ChartItemsList';

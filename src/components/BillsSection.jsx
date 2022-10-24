@@ -27,8 +27,8 @@ export const BillsSection = () => {
               <tr>
                 <th className="py-3 px-4 bg-lightpurple whitespace-nowrap text-left"><input type="radio" name="" id=""/></th>
                 {
-                  data.tableData.columns.map( option => (
-                    <th className="relative min-w-[110px] py-3 px-4 bg-lightpurple whitespace-nowrap text-left" >
+                  data.tableData.columns.map( (option, index) => (
+                    <th key={index} className="relative min-w-[110px] py-3 px-4 bg-lightpurple whitespace-nowrap text-left" >
                       <button type="button" className="w-full flex justify-between items-center gap-4" value={option} onClick={ handleToggleFoliosFilter }>{option}
                         <ArrowDownIcon/>
                       </button>
@@ -43,8 +43,8 @@ export const BillsSection = () => {
             </thead>
             <tbody>
               {
-                data.tableData.rows.map( row => (
-                  <tr>
+                data.tableData.rows.map( (row, index) => (
+                  <tr key={index}>
                     <td><input type="radio" name="" id={row.folio} /></td>
                     <td>{row.folio}</td>
                     <td>{row.proveedor}</td>

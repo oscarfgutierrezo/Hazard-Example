@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js';
 import { data } from "../data/data";
@@ -23,6 +23,28 @@ export const LineChart = ({ items }) => {
       }
     ))
   })
+
+  useEffect(() => {
+    setUserData(
+      {
+        labels: data.chartData.labels,
+        datasets: items.map( item => (
+          {
+            label: item.name,
+            data: item.data,
+            borderColor: item.color,
+            backgroundColor: item.backgroundColor,
+            borderWidth: 2,
+            tension: 0.4,
+            radius: '0',
+            pointStyle: 'none',
+            fill: true,
+          }
+        ))
+      }
+    )
+  }, [items])
+  
 
   const options = {
     responsive: true,

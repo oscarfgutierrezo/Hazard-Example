@@ -1,7 +1,6 @@
-import { useState } from "react"
-import { ArrowDownIcon, BellIcon } from "../icons"
-import { HamburgerIcon } from "../icons/HamburgerIcon"
-import { NavbarMenuCollapsible, NavbarNotifications } from "./"
+import { useState } from "react";
+import { ArrowDownIcon, BellIcon, HamburgerIcon } from "../../icons";
+import { NavbarMenuCollapsible, NavbarDropdownNotifications } from "../navbar";
 
 export const Navbar = () => {
   
@@ -22,14 +21,14 @@ export const Navbar = () => {
       </div>
       <div className="col-span-1 justify-self-end order-1 sm:order-2">
         <div className="relative inline-flex">
-          <button className="relative flex items-center gap-3 duration-300 hover:text-pink" onClick={ handleToggleNotifications }>
+          <button type="button" className="relative flex items-center gap-3 duration-300 hover:text-pink" onClick={ handleToggleNotifications }>
             <BellIcon/>
             <span className="absolute -top-1 left-5 w-4 h-4 rounded-full text-sm text-white leading-tight bg-red-500">3</span>
             <ArrowDownIcon/>
           </button>
-          <NavbarNotifications isOpened={ isOpenedNotifications } />
+          <NavbarDropdownNotifications isOpened={ isOpenedNotifications } />
         </div>
-        <button className="ml-4 p-0.5 border border-transparent rounded-md duration-300 hover:text-pink hover:border-lightpurple md:hidden" onClick={ handleToggleMenu }>
+        <button type="button" className="ml-4 p-0.5 border border-transparent rounded-md duration-300 hover:text-pink hover:border-lightpurple md:hidden" onClick={ handleToggleMenu }>
           <HamburgerIcon/>
         </button>
       </div>

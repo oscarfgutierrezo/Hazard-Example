@@ -29,3 +29,12 @@ html {
   white-space: nowrap;
   text-align: left;
 }
+
+.animate{
+  animation: animatezoom 0.5s
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}

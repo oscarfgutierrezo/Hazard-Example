@@ -1,13 +1,11 @@
-import { LineChart } from "./LineChart";
-import { ArrowDownIcon } from "../icons";
 import { useMemo, useState } from "react";
-import { ChartMenuFilter } from "./ChartMenuFilter";
-import { buildChartData } from "../helpers";
-import { data } from "../data/data";
-import { ChartItemsList } from "./ChartItemsList";
+import { ArrowDownIcon } from "../../icons";
+import { buildChartData } from "../../helpers";
+import { mainData } from "../../data";
+import { ChartItemsList, ChartMenuFilter, LineChart } from "../chartSection";
 
 export const ChartSection = () => {
-  const items = useMemo(() => buildChartData(data.chartData), [data]);
+  const items = useMemo(() => buildChartData(mainData.chartData), [mainData]);
   const [ itemsChecked, setItemsChecked ] = useState([...items])
   const [ isOpenedChartFilter, setIsOpenedChartFilter ] = useState(false);
 
@@ -23,7 +21,7 @@ export const ChartSection = () => {
           <h2 className="text-center text-xl font-bold text-black-900 sm:text-left">Rendimiento</h2>
         </div>
         <div className="col-span-3 relative w-full max-w-[240px] justify-self-center sm:col-span-1 sm:order-3">
-          <button className="w-full px-3 py-0.5 flex justify-between items-center text-sm font-medium text-black-500 border-2 border-black-300 rounded-md" onClick={ handleToggleChartFilter }>Filtrar por
+          <button type="button" className="w-full px-3 py-0.5 flex justify-between items-center text-sm font-medium text-black-500 border-2 border-black-300 rounded-md" onClick={ handleToggleChartFilter }>Filtrar por
               <ArrowDownIcon/>
           </button>
           <ChartMenuFilter isOpened={ isOpenedChartFilter } items={ items } setItemsChecked={ (items) => setItemsChecked(items)} itemsChecked={ itemsChecked } />

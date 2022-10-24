@@ -1,5 +1,4 @@
-import { HomeIcon, NotebookIcon, CardIcon, BagMoneyIcon } from "../icons";
-import { itemsNavigation } from "./itemsNavigation";
+import { itemsNavigation } from "../itemsNavigation";
 
 export const NavbarMenuCollapsible = ({ isOpened }) => {
   return (
@@ -7,7 +6,7 @@ export const NavbarMenuCollapsible = ({ isOpened }) => {
       {
         itemsNavigation.map( item => (
           <li key={item.id} className="py-1 pl-3 text-black-500 border-b duration-300 cursor-pointer hover:bg-lightpurple hover:text-pink">
-            <button className="flex items-center gap-3">
+            <button type="button" className="flex items-center gap-3">
               {item.icon}{item.name}
             </button>
           </li>

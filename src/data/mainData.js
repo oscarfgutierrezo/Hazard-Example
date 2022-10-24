@@ -1,4 +1,4 @@
-export const data = {
+export const mainData = {
   chartData: {
     labels: [ 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre' ],
     item1: [ 50, 110, 90, 160, 105, 120, 170, 95, 180 ],

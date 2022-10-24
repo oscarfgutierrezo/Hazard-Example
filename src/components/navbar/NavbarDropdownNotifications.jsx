@@ -1,6 +1,6 @@
-import { NotebookIcon, CardIcon } from "../icons"
+import { NotebookIcon, CardIcon } from "../../icons"
 
-export const NavbarNotifications = ( {isOpened} ) => {
+export const NavbarDropdownNotifications = ( {isOpened} ) => {
   
   const notifications = [
     {
@@ -25,7 +25,7 @@ export const NavbarNotifications = ( {isOpened} ) => {
       {
         notifications.map( notification => (
           <li key={notification.id} className="my-1 py-1 px-3 text-black-500 border-b duration-300 cursor-pointer hover:bg-lightpurple hover:text-pink">
-            <button className="flex items-center gap-3">
+            <button type="button" className="flex items-center gap-3">
               {notification.icon}{notification.description}
             </button>
           </li>

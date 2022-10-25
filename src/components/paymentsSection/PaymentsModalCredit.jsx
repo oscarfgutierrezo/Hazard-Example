@@ -13,7 +13,7 @@ export const PaymentsModalCreditLine = ({ isOpened, setIsOpened, creditLine, set
   }
   return (
     <div className={`${ isOpened ? 'flex' : 'hidden' } fixed top-0 left-0 px-5 w-screen h-screen justify-center items-center bg-black-900/50 z-10`}>
-      <div className="animate relative w-full max-w-xs p-5 pt-10 bg-white rounded-lg">
+      <div className="animate relative w-full max-w-xs p-5 pt-10 bg-white rounded-lg" >
         <form className="flex flex-col items-center gap-3" onSubmit={ handleSubmit }>
           <label htmlFor="new-credit-line" className="mb-5 text-xl font-medium text-black-700">Nueva Línea de Crédito</label>
           <div className="relative w-full">

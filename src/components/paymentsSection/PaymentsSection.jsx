@@ -1,13 +1,14 @@
 import { ArrowDownIcon } from "../../icons";
-import { PaymentsModalCreditLine } from "../../components";
+import { PaymentsModalCreditLine, PaymentProgressBar } from "../../components";
 import { useEffect, useState } from "react";
 import { creditOperations, formatNumber } from "../../helpers";
 
 export const PaymentsSection = () => {
   const [modalIsOpened, setModalIsOpened] = useState(false);
-  const [creditLine, setCreditLine] = useState(450000000);
-  const { creditSpent, creditAvailable, percentCreditSpent } = creditOperations(creditLine);
-  
+  const [creditLine, setCreditLine] = useState(150000000);
+  const creditSpent = 150000000
+  const { creditAvailable, percentCreditSpent } = creditOperations(creditLine, creditSpent);
+
   const handleToggleModal = () => {
     setModalIsOpened(!modalIsOpened);
   };
@@ -28,8 +29,7 @@ export const PaymentsSection = () => {
             <p className="font-bold">${formatNumber(creditSpent)}</p>
             <p className="text-end font-bold">${formatNumber(creditAvailable)}</p>
             <div className="col-span-2">
-
-            <div className={`w-[${percentCreditSpent}%] my-3 h-2 bg-pink rounded-full`}></div>
+              <PaymentProgressBar progressPercentage={ percentCreditSpent }/>
             </div>
             <hr className="col-span-2 mt-2 mb-5" />
             <p className="text-sm font-medium text-black-500">Próxima deuda a pagar</p>

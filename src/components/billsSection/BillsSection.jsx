@@ -1,24 +1,28 @@
 import { useState } from "react";
 import { mainData } from "../../data";
 import { ArrowDownIcon } from "../../icons/ArrowDownIcon";
+import { BillsModalOrder } from "../../components";
+import { useSort } from "../../hooks/useSort";
 
 export const BillsSection = () => {
-  const [isOpenedFoliosFilter, setIsOpenedFoliosFilter] = useState({ isOpened: false, item: ''});
+  const [isOpenedModal, setIsOpenedModal] = useState(false);
+  const [filterSelected, setFilterSelected] = useState('folio-asc');
 
-  const handleToggleFoliosFilter = ({ target }) => {
-    setIsOpenedFoliosFilter({
-      isOpened: ( isOpenedFoliosFilter.item === target.value ) ? !isOpenedFoliosFilter.isOpened : true,
-      item: target.value,
-    });
-  };
-  
+  const { sortedTable } = useSort(mainData.tableData.rows, filterSelected);
+  console.log(sortedTable);
+
+  const handleToggleModal = () => {
+    setIsOpenedModal(!isOpenedModal);
+  }
+
   return (
     <section className="bill-section col-span-5 self-end lg:col-span-3 lg:order-3">
       <div className="grid grid-cols-2 gap-4">
         <div className="col-span-2 pb-3 sm:col-span-1">
           <h2 className="text-center text-xl font-bold text-black-900 sm:text-left">Facturas por pagar</h2>
         </div>
-        <div className="col-span-2 justify-self-center sm:col-span-1 sm:justify-self-end">
+        <div className="col-span-2 flex justify-around gap-10 sm:col-span-1 sm:justify-self-end">
+          <button type="button" className="text-sm font-bold text-pink uppercase" onClick={ handleToggleModal }>Ordenar</button>
           <button type="button" className="text-sm font-bold text-pink uppercase">Ver Todo</button>
         </div>
         <div className="col-span-2 overflow-x-auto">
@@ -28,22 +32,14 @@ export const BillsSection = () => {
                 <th className="py-3 px-4 bg-lightpurple whitespace-nowrap text-left"><input type="radio" name="" id=""/></th>
                 {
                   mainData.tableData.columns.map( (option, index) => (
-                    <th key={index} className="relative min-w-[110px] py-3 px-4 bg-lightpurple whitespace-nowrap text-left" >
-                      <button type="button" className="w-full flex justify-between items-center gap-4" value={option} onClick={ handleToggleFoliosFilter }>{option}
-                        <ArrowDownIcon/>
-                      </button>
-                      <ul className={`${ (isOpenedFoliosFilter.isOpened && isOpenedFoliosFilter.item === option)  ? 'max-h-40' : 'max-h-0'} absolute top-9 right-0 w-max text-sm font-normal bg-white rounded-md shadow-lg z-10 transition-all duration-500 overflow-hidden ease-in-out` }>
-                        <li><button type="button" className="w-full py-1 px-3 text-black-500 border-b duration-300 cursor-pointer hover:bg-lightpurple hover:text-pink">Ascendente</button></li>
-                        <li><button type="button" className="w-full py-1 px-3 text-black-500 border-b duration-300 cursor-pointer hover:bg-lightpurple hover:text-pink">Descendente</button></li>
-                      </ul>
-                    </th>
+                    <th key={index} className="relative min-w-[110px] py-3 px-4 bg-lightpurple whitespace-nowrap text-left" >{option}</th>
                   ))
                 }
               </tr>
             </thead>
             <tbody>
               {
-                mainData.tableData.rows.map( (row, index) => (
+                sortedTable.map( (row, index) => (
                   <tr key={index}>
                     <td><input type="radio" name="" id={row.folio} /></td>
                     <td>{row.folio}</td>
@@ -58,6 +54,7 @@ export const BillsSection = () => {
           </table>
         </div>
       </div>
+      <BillsModalOrder isOpened={ isOpenedModal } setIsOpened={ setIsOpenedModal } filterSelected={ filterSelected } setFilterSelected={ setFilterSelected }/>
     </section>
   )
 }

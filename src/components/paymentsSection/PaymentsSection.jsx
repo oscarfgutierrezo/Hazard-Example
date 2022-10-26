@@ -1,6 +1,6 @@
 import { ArrowDownIcon } from "../../icons";
 import { PaymentsModalCreditLine, PaymentProgressBar } from "../../components";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { creditOperations, formatNumber } from "../../helpers";
 
 export const PaymentsSection = () => {
@@ -37,7 +37,6 @@ export const PaymentsSection = () => {
           </div>
         </div>
       </div>
-      <PaymentsModalCreditLine isOpened={ modalIsOpened } setIsOpened={ setModalIsOpened } setCreditLine={ setCreditLine } creditLine={ creditLine } />
       <div className="grid grid-cols-2 gap-3">
         <h3 className="col-span-2 text-center text-black-700 font-medium sm:col-span-1 sm:text-start lg:col-span-2 lg:text-center xl:col-span-1 xl:text-start">Mis Nóminas</h3>
         <div className="col-span-2 relative justify-self-center sm:col-span-1 sm:justify-self-end lg:col-span-2
@@ -93,6 +92,7 @@ export const PaymentsSection = () => {
           </div>
         </div>
       </div>
+      <PaymentsModalCreditLine isOpened={ modalIsOpened } setIsOpened={ setModalIsOpened } setCreditLine={ setCreditLine } creditLine={ creditLine } />
     </section>
   )
 }

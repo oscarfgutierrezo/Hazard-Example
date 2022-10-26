@@ -1,2 +1,3 @@
 export * from './BillsSection';
-export * from './BillsModalOrder';
+export * from './BillsOrderModal';
+export * from './BillsShowModal';

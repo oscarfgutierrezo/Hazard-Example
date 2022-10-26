@@ -1,18 +1,15 @@
 import { useState } from "react";
+import { useCheckedChart } from "../../hooks";
 
 export const ChartMenuFilter = ({ isOpened, items, itemsChecked, setItemsChecked }) => {
-  const [checkedState, setCheckedState] = useState(new Array(items.length).fill(true));
-
-  const handleOnChange = (e, position) => {
-    const updatedCheckedState = checkedState.map((item, index) =>
-      index === position ? !item : item
-    );
-    setCheckedState(updatedCheckedState);
-
-    if(e.target.checked) {
-      setItemsChecked([...itemsChecked, ...items.filter(item => item.id === e.target.value )])
+  const { checkedState, handleOnChecked } = useCheckedChart(items);
+  
+  const handleOnChange = ({ target }, position) => {
+    handleOnChecked(position);
+    if(target.checked) {
+      setItemsChecked([...itemsChecked, ...items.filter(item => item.id === target.value )])
     } else {
-      setItemsChecked(itemsChecked.filter( item => item.id !== e.target.value))
+      setItemsChecked(itemsChecked.filter( item => item.id !== target.value))
     }     
   };
   

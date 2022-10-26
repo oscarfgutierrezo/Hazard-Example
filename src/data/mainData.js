@@ -9,8 +9,8 @@ export const mainData = {
     columns: [ 'N° Folio', 'Proveedor', 'Tipo', 'Monto', 'Fecha de pago' ],
     rows: [
       { folio: 6574743, proveedor: 'Soc. Import. Y Exp. Bash Ltda', tipo: 'Cedida', monto: '$100.448.159', fechaPago: '30/12/2022' },
-      { folio: 4356762, proveedor: 'Import. Y Exp. Bash Ltda', tipo: 'No Cedida', monto: '$230.118.182', fechaPago: '21/01/2023' },
-      { folio: 2435676, proveedor: 'Exp. Bash Ltda', tipo: 'Cedida', monto: '$45.654.232', fechaPago: '12/01/2023' },
+      { folio: 4356762, proveedor: 'Exp. Bash Ltda', tipo: 'No Cedida', monto: '$230.118.182', fechaPago: '21/01/2023' },
+      { folio: 2435676, proveedor: 'Import. Y Exp. Bash Ltda', tipo: 'Cedida', monto: '$45.654.232', fechaPago: '12/01/2023' },
     ]
   }
 };

@@ -4,32 +4,36 @@ import { BillsOrderModal, BillsShowModal } from "../../components";
 import { useSort, useCheckedBills } from "../../hooks";
 
 export const BillsSection = () => {
-  const [isOpenedOrderModal, setIsOpenedOrderModal] = useState(false);
-  const [isOpenedShowModal, setIsOpenedShowModal] = useState(false);
-
   const [filterSelected, setFilterSelected] = useState('folio-asc');
+  const [billSelected, setBillSelected] = useState([]);
+    
+  const [modalsStatus, setModalsStatus] = useState({
+    orderModal: false,
+    showModal: false,
+  })
+  
+  const handleModal = ({ target }) => {
+    const { name } = target;
+    setModalsStatus({
+      ...modalsStatus,
+      [name]: !modalsStatus[name],
+    });
+  }
+  
+
   const { sortedTable } = useSort(mainData.tableData.rows, filterSelected);
 
-  const [folioSelected, setFolioSelected] = useState([]);
-    
+  
   const { checkedState, handleOnChecked } = useCheckedBills(sortedTable);
 
   const handleOnChange = ({target}, position) => {
     handleOnChecked(position);
     if(target.checked) {
-      setFolioSelected([...folioSelected, ...sortedTable.filter(item => item.folio === Number(target.value) )])
+      setBillSelected([...billSelected, ...sortedTable.filter(item => item.folio === Number(target.value) )])
     } else {
-      setFolioSelected(folioSelected.filter( item => item.folio !== Number(target.value) ))
+      setBillSelected(billSelected.filter( item => item.folio !== Number(target.value) ))
     }     
   };
-  
-  const handleOrderModal = () => {
-    setIsOpenedOrderModal(!isOpenedOrderModal);
-  }
-
-  const handleShowModal = () => {
-    setIsOpenedShowModal(!isOpenedShowModal);
-  }
 
   return (
     <section className="bill-section col-span-5 self-end lg:col-span-3 lg:order-3">
@@ -38,8 +42,8 @@ export const BillsSection = () => {
           <h2 className="text-center text-xl font-bold text-black-900 sm:text-left">Facturas por pagar</h2>
         </div>
         <div className="col-span-2 flex justify-around gap-10 sm:col-span-1 sm:justify-self-end">
-          <button type="button" className="text-sm font-bold text-pink uppercase" onClick={ handleShowModal }>Ver Todo</button>
-          <button type="button" className="text-sm font-bold text-pink uppercase" onClick={ handleOrderModal }>Ordenar</button>
+          <button type="button" className="text-sm font-bold text-pink uppercase" name="showModal" onClick={ handleModal }>Ver Todo</button>
+          <button type="button" className="text-sm font-bold text-pink uppercase" name="orderModal" onClick={ handleModal }>Ordenar</button>
         </div>
         <div className="col-span-2 overflow-x-auto">
           <table className="w-full py-3 text-sm text-black-500">
@@ -70,8 +74,8 @@ export const BillsSection = () => {
           </table>
         </div>
       </div>
-      <BillsOrderModal isOpened={ isOpenedOrderModal } setIsOpened={ setIsOpenedOrderModal } filterSelected={ filterSelected } setFilterSelected={ setFilterSelected }/>
-      <BillsShowModal isOpened={ isOpenedShowModal } setIsOpened={ setIsOpenedShowModal } folios={ folioSelected } />
+      <BillsOrderModal modalsStatus={ modalsStatus } setModalsStatus={ setModalsStatus } setFilterSelected={ setFilterSelected }/>
+      <BillsShowModal modalsStatus={ modalsStatus } setModalsStatus={ setModalsStatus } bills={ billSelected } />
     </section>
   )
 }

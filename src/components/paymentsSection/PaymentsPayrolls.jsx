@@ -1,30 +1,21 @@
 import { useState } from 'react';
 import { payrollsData } from '../../data';
-import { ArrowDownIcon } from '../../icons';
 import { PaymentsDropdown } from '../../components';
 import { cutDate, formatDate } from '../../helpers';
 
 
 export const PaymentsPayrolls = () => {
   const [filterSelected, setFilterSelected] = useState('Pendientes por revisar');
-  const [ isOpenedDropdown, setIsOpenedDropdown ] = useState(false);
   const payrollsFiltered = payrollsData.filter( payroll => (
     payroll.estado === filterSelected
   ));
-
-  const handleToggleDropdown = () => {
-    setIsOpenedDropdown(!isOpenedDropdown);
-  };
   
   return (
     <div className="grid grid-cols-2 gap-3">
       <h3 className="col-span-2 text-center text-black-700 font-medium sm:col-span-1 sm:text-start lg:col-span-2 lg:text-center xl:col-span-1 xl:text-start">Mis Nóminas</h3>
-      <div className="col-span-2 relative justify-self-center sm:col-span-1 sm:justify-self-end lg:col-span-2
+      <div className="col-span-2 justify-self-center sm:col-span-1 sm:justify-self-end lg:col-span-2
       lg:justify-self-center xl:col-span-1 xl:justify-self-end">
-        <button type="button" className="w-60 px-3 py-0.5 flex justify-between items-center gap-5 text-sm font-medium text-black-500 border-2 border-black-300 rounded-md sm:w-max lg:w-60 xl:w-52" onClick={ handleToggleDropdown }>{filterSelected}
-            <ArrowDownIcon/>
-        </button>
-        <PaymentsDropdown isOpened={ isOpenedDropdown } setIsOpened={ setIsOpenedDropdown } setFilterSelected={ setFilterSelected } />
+        <PaymentsDropdown filterSelected={ filterSelected } setFilterSelected={ setFilterSelected } />
       </div>
       <div className='col-span-2 pr-1 h-60 overflow-y-auto'>
       {

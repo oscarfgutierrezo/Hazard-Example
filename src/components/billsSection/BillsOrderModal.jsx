@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { useClickOutside } from '../../hooks';
 import { CloseIcon } from '../../icons'
 
-export const BillsOrderModal = ({ modalsStatus, setModalsStatus, setFilterSelected }) => {
+export const BillsOrderModal = ({ isOpened, setIsOpened, filterSelected, setFilterSelected }) => {
   const [radioSelected, setRadioSelected] = useState('folio-asc')
+  const ref = useRef();
 
   const handleSelect = ({ target }) => {
     setRadioSelected(target.value);
@@ -10,21 +12,21 @@ export const BillsOrderModal = ({ modalsStatus, setModalsStatus, setFilterSelect
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFilterSelected(radioSelected)
-    closeModal()
+    setFilterSelected(radioSelected);
+    setIsOpened(false);
+  };
+
+  const resetRadioSelected = () => {
+    setRadioSelected(filterSelected);
+    setIsOpened(false);
   }
 
-  const closeModal = () => {
-    setModalsStatus({
-      ...modalsStatus,
-      orderModal: false,
-    });
-  }
-  
+  useClickOutside( ref, () => resetRadioSelected() );
+
   return (
-    <div className={`${ modalsStatus.orderModal ? 'flex' : 'hidden' } fixed top-0 left-0 px-5 w-screen h-screen justify-center items-center bg-black-900/50 z-10`}>
-      <div className="animate relative w-full max-w-xs p-5 pt-8 bg-white rounded-lg sm:px-7" >
-        <button type="button" className="absolute top-3 right-3 text-black-700" onClick={ closeModal }>
+    <div className={`${ isOpened ? 'flex' : 'hidden' } fixed top-0 left-0 px-5 w-screen h-screen justify-center items-center bg-black-900/50 z-10`}>
+      <div className="animate relative w-full max-w-xs p-5 pt-8 bg-white rounded-lg sm:px-7" ref={ref}>
+        <button type="button" className="absolute top-3 right-3 text-black-700" onClick={ resetRadioSelected }>
           <CloseIcon/>
         </button>
         <h3 className="pb-7 text-center text-xl font-medium text-black-700">Ordenar Facturas por</h3>

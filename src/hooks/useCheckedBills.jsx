@@ -19,7 +19,6 @@ export const useCheckedBills = (bills) => {
       setBillsCkecked([])
     }
   };
-  console.log(billsChecked);
   
   return {
     billsChecked,

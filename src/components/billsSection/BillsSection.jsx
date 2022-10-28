@@ -5,22 +5,19 @@ import { useSort, useCheckedBills } from '../../hooks';
 
 export const BillsSection = () => {
   const [filterSelected, setFilterSelected] = useState('folio-asc');
-  const [modalsStatus, setModalsStatus] = useState({
-    orderModal: false,
-    showModal: false,
-  })
-  
+  const [showModalIsOpened, setShowModalIsOpened] = useState(false);
+  const [orderModalIsOpened, setOrderModalIsOpened] = useState(false);
+
   const { sortedTable } = useSort(mainData.tableData.rows, filterSelected);
   const { billsChecked, handleOnChecked, handleCheckAll } = useCheckedBills(sortedTable);
-  
-  const handleModal = ({ target }) => {
-    const { name } = target;
-    setModalsStatus({
-      ...modalsStatus,
-      [name]: !modalsStatus[name],
-    });
-  };
 
+  const handleShowModal = () => {
+    setShowModalIsOpened(!showModalIsOpened)
+  };
+  const handleOrderModal = () => {
+    setOrderModalIsOpened(!orderModalIsOpened)
+  };
+  
   return (
     <section className="bill-section col-span-5 self-end lg:col-span-3 lg:order-3">
       <div className="grid grid-cols-2 gap-4">
@@ -28,8 +25,8 @@ export const BillsSection = () => {
           <h2 className="text-center text-xl font-bold text-black-900 sm:text-left">Facturas por pagar</h2>
         </div>
         <div className="col-span-2 flex justify-around gap-10 sm:col-span-1 sm:justify-self-end">
-          <button type="button" className="text-sm font-bold text-pink uppercase" name="showModal" onClick={ handleModal }>Ver Todo</button>
-          <button type="button" className="text-sm font-bold text-pink uppercase" name="orderModal" onClick={ handleModal }>Ordenar</button>
+          <button type="button" className="text-sm font-bold text-pink uppercase" name="showModal" onClick={ handleShowModal }>Ver Todo</button>
+          <button type="button" className="text-sm font-bold text-pink uppercase" name="orderModal" onClick={ handleOrderModal }>Ordenar</button>
         </div>
         <div className="col-span-2 overflow-x-auto">
           <table className="w-full py-3 text-sm text-black-500">
@@ -62,8 +59,8 @@ export const BillsSection = () => {
           </table>
         </div>
       </div>
-      <BillsOrderModal modalsStatus={ modalsStatus } setModalsStatus={ setModalsStatus } setFilterSelected={ setFilterSelected }/>
-      <BillsShowModal modalsStatus={ modalsStatus } setModalsStatus={ setModalsStatus } billsChecked={ billsChecked } bills={ sortedTable } />
+      <BillsOrderModal isOpened={ orderModalIsOpened } setIsOpened={ setOrderModalIsOpened } filterSelected={ filterSelected} setFilterSelected={ setFilterSelected }/>
+      <BillsShowModal isOpened={ showModalIsOpened } setIsOpened={ setShowModalIsOpened } billsChecked={ billsChecked } bills={ sortedTable } />
     </section>
   )
 }

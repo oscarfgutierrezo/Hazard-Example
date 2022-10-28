@@ -1,6 +1,7 @@
 import { itemsNavigation } from '../../data';
 
 export const NavbarMenuCollapsible = ({ isOpened }) => {
+
   return (
     <ul className={`${isOpened ? 'max-h-40' : 'max-h-0'} col-span-2 order-2 transition-all duration-500 overflow-hidden ease-in-out sm:col-span-6 sm:order-3 md:hidden`}>
       {

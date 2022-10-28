@@ -15,7 +15,8 @@ export const PaymentsModalCreditLine = ({ isOpened, setIsOpened, creditLine, set
   const ref = useRef();
   
   const handleClick = () => {
-    setIsOpened(false)
+    setIsOpened(false);
+    setNewCreditLine(creditLine);
   }
 
   useClickOutside( ref, () => handleClick() );
@@ -33,7 +34,11 @@ export const PaymentsModalCreditLine = ({ isOpened, setIsOpened, creditLine, set
               <DollarIcon/>
             </div>
           </div>
-          <button type="submit" className="w-full px-5 py-1 text-white bg-purple rounded-md">Guardar</button>
+          {
+            (newCreditLine < creditLine) && 
+            <p className='text-center text-sm text-red-500'>Se sugiere no disminuir la línea de crédito</p>
+          }
+          <button type="submit" className="w-full px-5 py-1 text-white bg-purple rounded-md disabled:opacity-30">Guardar</button>
         </form>
       </div>
     </div>

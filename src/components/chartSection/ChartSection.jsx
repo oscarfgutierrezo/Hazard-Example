@@ -2,13 +2,12 @@ import { useMemo, useState } from "react";
 import { ArrowDownIcon } from "../../icons";
 import { buildChartData } from "../../helpers";
 import { mainData } from "../../data";
-import { ChartItemsList, ChartMenuFilter, LineChart } from "../chartSection";
+import { ChartItemsList, ChartMenuFilter, LineChart } from '../chartSection';
 
 export const ChartSection = () => {
   const items = useMemo(() => buildChartData(mainData.chartData), [mainData]);
   const [ itemsChecked, setItemsChecked ] = useState([...items])
   const [ isOpenedChartFilter, setIsOpenedChartFilter ] = useState(false);
-
 
   const handleToggleChartFilter = () => {
     setIsOpenedChartFilter(!isOpenedChartFilter);

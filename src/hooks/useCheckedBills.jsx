@@ -1,17 +1,29 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-export const useCheckedBills = (array) => {
-  const [checkedState, setCheckedState] = useState(new Array(array.length).fill(false));
+export const useCheckedBills = (bills) => {
+  const [billsChecked, setBillsCkecked] = useState([]);
   
-  const handleOnChecked = (position) => {
-    const updatedCheckedState = checkedState.map((item, index) =>
-      index === position ? !item : item
-    );
-    setCheckedState(updatedCheckedState);
+  const handleOnChecked = ({ target }) => {
+    const numberFolio = Number(target.value)
+    if(billsChecked.includes(numberFolio)) {
+      setBillsCkecked( billsChecked.filter( bill => bill !== numberFolio ) )
+    } else {
+      setBillsCkecked( [...billsChecked, numberFolio] )
+    }
   };
+
+  const handleCheckAll = ({ target }) => {
+    if (target.checked) {
+      setBillsCkecked(bills.map( bill => bill.folio ))
+    } else {
+      setBillsCkecked([])
+    }
+  };
+  console.log(billsChecked);
   
   return {
-    checkedState,
-    handleOnChecked
+    billsChecked,
+    handleOnChecked,
+    handleCheckAll
   }
 }

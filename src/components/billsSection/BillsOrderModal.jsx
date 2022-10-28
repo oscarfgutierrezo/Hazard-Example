@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { CloseIcon } from "../../icons"
+import { useState } from 'react';
+import { CloseIcon } from '../../icons'
 
 export const BillsOrderModal = ({ modalsStatus, setModalsStatus, setFilterSelected }) => {
   const [radioSelected, setRadioSelected] = useState('folio-asc')

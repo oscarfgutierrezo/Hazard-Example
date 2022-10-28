@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { ArrowDownIcon, BellIcon, HamburgerIcon } from "../../icons";
-import { NavbarMenuCollapsible, NavbarDropdownNotifications } from "../navbar";
+import { useState } from 'react';
+import { ArrowDownIcon, BellIcon, HamburgerIcon } from '../../icons';
+import { NavbarMenuCollapsible, NavbarDropdownNotifications } from '../navbar';
 
 export const Navbar = () => {
   

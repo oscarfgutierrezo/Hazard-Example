@@ -1,4 +1,4 @@
-import { Navbar, Sidebar, ChartSection, BillsSection, PaymentsSection } from "./components";
+import { Navbar, Sidebar, ChartSection, BillsSection, PaymentsSection } from './components';
 
 export const App = () => {  
   return (

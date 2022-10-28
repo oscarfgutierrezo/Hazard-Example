@@ -1,4 +1,4 @@
-import { HomeIcon, NotebookIcon, CardIcon, BagMoneyIcon } from "../icons";
+import { HomeIcon, NotebookIcon, CardIcon, BagMoneyIcon } from '../icons';
 
 export const itemsNavigation = [
   {

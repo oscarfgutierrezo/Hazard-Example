@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const DollarIcon = () => {
   return (
     <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" fill="currentColor">

@@ -2,9 +2,6 @@ export * from './buildChartData';
 export * from './randomColor';
 export * from './formatNumber';
 export * from './creditOperations';
-export * from './sortByDate';
 export * from './compareItems';
-export * from './sortByFolio';
-export * from './sortByProvider';
-export * from './sortByAmount';
-export * from './sortByType';
+export * from './sortTable';
+export * from './paymentSection'

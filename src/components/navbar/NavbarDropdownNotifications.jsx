@@ -1,4 +1,4 @@
-import { NotebookIcon, CardIcon } from "../../icons"
+import { NotebookIcon, CardIcon } from '../../icons'
 
 export const NavbarDropdownNotifications = ( {isOpened} ) => {
   

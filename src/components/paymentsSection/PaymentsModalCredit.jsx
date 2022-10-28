@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { CloseIcon, DollarIcon } from "../../icons"
+import { useState } from 'react';
+import { CloseIcon, DollarIcon } from '../../icons'
 
 export const PaymentsModalCreditLine = ({ isOpened, setIsOpened, creditLine, setCreditLine }) => {
   const [newCreditLine, setNewCreditLine] = useState(creditLine);

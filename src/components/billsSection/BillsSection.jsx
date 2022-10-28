@@ -1,16 +1,17 @@
-import { useState } from "react";
-import { mainData } from "../../data";
-import { BillsOrderModal, BillsShowModal } from "../../components";
-import { useSort, useCheckedBills } from "../../hooks";
+import { useState } from 'react';
+import { mainData } from '../../data';
+import { BillsOrderModal, BillsShowModal } from '../../components';
+import { useSort, useCheckedBills } from '../../hooks';
 
 export const BillsSection = () => {
   const [filterSelected, setFilterSelected] = useState('folio-asc');
-  const [billSelected, setBillSelected] = useState([]);
-    
   const [modalsStatus, setModalsStatus] = useState({
     orderModal: false,
     showModal: false,
   })
+  
+  const { sortedTable } = useSort(mainData.tableData.rows, filterSelected);
+  const { billsChecked, handleOnChecked, handleCheckAll } = useCheckedBills(sortedTable);
   
   const handleModal = ({ target }) => {
     const { name } = target;
@@ -18,21 +19,6 @@ export const BillsSection = () => {
       ...modalsStatus,
       [name]: !modalsStatus[name],
     });
-  }
-  
-
-  const { sortedTable } = useSort(mainData.tableData.rows, filterSelected);
-
-  
-  const { checkedState, handleOnChecked } = useCheckedBills(sortedTable);
-
-  const handleOnChange = ({target}, position) => {
-    handleOnChecked(position);
-    if(target.checked) {
-      setBillSelected([...billSelected, ...sortedTable.filter(item => item.folio === Number(target.value) )])
-    } else {
-      setBillSelected(billSelected.filter( item => item.folio !== Number(target.value) ))
-    }     
   };
 
   return (
@@ -49,7 +35,9 @@ export const BillsSection = () => {
           <table className="w-full py-3 text-sm text-black-500">
             <thead className="text-black-700">
               <tr>
-                <th className="py-3 px-4 bg-lightpurple whitespace-nowrap text-left"><input type="checkbox" id="all"/></th>
+                <th className="py-3 px-4 bg-lightpurple whitespace-nowrap text-left">
+                  <input type="checkbox" checked={ billsChecked.length === sortedTable.length } onChange={ handleCheckAll }/>
+                </th>
                 {
                   mainData.tableData.columns.map( (option, index) => (
                     <th key={index} className="relative min-w-[110px] py-3 px-4 bg-lightpurple whitespace-nowrap text-left" >{option}</th>
@@ -61,7 +49,7 @@ export const BillsSection = () => {
               {
                 sortedTable.map( (row, index) => (
                   <tr key={row.folio}>
-                    <td><input type="checkbox" id={ row.folio } value={ row.folio } checked={checkedState[index]} onChange={(e) => handleOnChange(e, index)} /></td>
+                    <td><input type="checkbox" id={ row.folio } value={ row.folio } checked={ billsChecked.includes(row.folio) } onChange={ handleOnChecked } /></td>
                     <td>{row.folio}</td>
                     <td>{row.proveedor}</td>
                     <td>{row.tipo}</td>
@@ -75,7 +63,7 @@ export const BillsSection = () => {
         </div>
       </div>
       <BillsOrderModal modalsStatus={ modalsStatus } setModalsStatus={ setModalsStatus } setFilterSelected={ setFilterSelected }/>
-      <BillsShowModal modalsStatus={ modalsStatus } setModalsStatus={ setModalsStatus } bills={ billSelected } />
+      <BillsShowModal modalsStatus={ modalsStatus } setModalsStatus={ setModalsStatus } billsChecked={ billsChecked } bills={ sortedTable } />
     </section>
   )
 }

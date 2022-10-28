@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export const useCheckedChart = (array) => {
   const [checkedState, setCheckedState] = useState(new Array(array.length).fill(true));

@@ -1,6 +1,8 @@
-import { CloseIcon } from "../../icons"
+import { CloseIcon } from '../../icons'
 
-export const BillsShowModal = ({ modalsStatus, setModalsStatus, bills }) => {
+export const BillsShowModal = ({ modalsStatus, setModalsStatus, billsChecked, bills }) => {
+  const billsForShow = bills.filter( bill => billsChecked.includes(bill.folio) )
+  
   const closeModal = () => {
     setModalsStatus({
       ...modalsStatus,
@@ -14,13 +16,13 @@ export const BillsShowModal = ({ modalsStatus, setModalsStatus, bills }) => {
         <button type="button" className="absolute top-3 right-3 text-black-700" onClick={ closeModal }>
           <CloseIcon/>
         </button>
-        <div className="max-h-96 overflow-scroll">
+        <div className="max-h-96 overflow-auto">
           {
-            (!bills.length)
+            (!billsForShow.length)
             ?
             <p className="py-10 text-center text-xl font-medium text-black-500">Selecciona una o varias facturas para ver los detalles</p>
             :
-            bills.map( bill => (
+            billsForShow.map( bill => (
               <div key={bill.folio} className="py-5 text-black-300">
                 <h3 className="pb-5 text-center text-2xl font-medium text-black-700">Factura N°{bill.folio}</h3>
                 <p>Proveedor:</p>

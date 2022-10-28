@@ -1,4 +1,4 @@
-import { compareItems } from "../helpers";
+import { compareItems } from '../../helpers';
 
 export const sortByDate = ( array, type ) => {
   const arrayOrdened = [...array].sort(( item1, item2 ) => {

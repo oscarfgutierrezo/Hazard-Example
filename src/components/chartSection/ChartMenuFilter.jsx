@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useCheckedChart } from "../../hooks";
+import { useCheckedChart } from '../../hooks';
 
 export const ChartMenuFilter = ({ isOpened, items, itemsChecked, setItemsChecked }) => {
   const { checkedState, handleOnChecked } = useCheckedChart(items);

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { sortByFolio, sortByProvider, sortByType, sortByAmount, sortByDate } from "../helpers";
+import { useEffect, useState } from 'react';
+import { sortByFolio, sortByProvider, sortByType, sortByAmount, sortByDate } from '../helpers';
 
 export const useSort = ( array, filter ) => {
   const [sortedTable, setSortedTable] = useState(array);

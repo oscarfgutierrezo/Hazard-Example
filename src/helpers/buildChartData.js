@@ -1,4 +1,4 @@
-import { randomColor } from "../helpers";
+import { randomColor } from '../helpers';
 
 export const buildChartData = (data) => {
   let items = [];

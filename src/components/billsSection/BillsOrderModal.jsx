@@ -86,7 +86,7 @@ export const BillsOrderModal = ({ isOpened, setIsOpened, filterSelected, setFilt
               <label className="pl-1" htmlFor="fecha-rec">Más Reciente</label>
             </div>
           </div>
-          <button type="submit" className="mt-5 w-full max-w-xs px-5 py-1 text-white bg-purple rounded-md">Ordenar</button>
+          <button type="submit" className="mt-5 w-full max-w-xs px-5 py-1 text-white bg-purple/80 rounded-md hover:bg-purple duration-300">Ordenar</button>
         </form>
       </div>
     </div>

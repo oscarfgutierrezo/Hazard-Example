@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { useCheckedChart, useClickOutside } from '../../hooks';
 import { ArrowDownIcon } from "../../icons";
 
-export const ChartMenuFilter = ({ items, itemsChecked, setItemsChecked }) => {
+export const ChartDropdown = ({ items, itemsChecked, setItemsChecked }) => {
   const [ isOpened, setIsOpened ] = useState(false);
   const ref = useRef();
   const { checkedState, handleOnChecked } = useCheckedChart(items);

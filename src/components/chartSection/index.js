@@ -1,4 +1,4 @@
 export * from './ChartItemsList';
-export * from './ChartMenuFilter';
+export * from './ChartDropdown';
 export * from './ChartSection';
 export * from './LineChart';

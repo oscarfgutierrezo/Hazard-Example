@@ -17,27 +17,27 @@ export const PaymentsPayrolls = () => {
       lg:justify-self-center xl:col-span-1 xl:justify-self-end">
         <PaymentsDropdown filterSelected={ filterSelected } setFilterSelected={ setFilterSelected } />
       </div>
-      <div className='col-span-2 pr-1 h-60 overflow-y-auto'>
+      <div className='col-span-2 pr-1 h-60 overflow-y-auto scrollbar'>
       {
         payrollsFiltered.map( payroll => (
           <div className="p-3 pb-0">
             <h4 className="pb-4 font-medium text-black-500">Facturas del {cutDate(payroll.fechaPago)}</h4>
-            <div className="pb-2 overflow-auto">
-              <table className="w-full">
-                <thead>
+            <div className="pb-2 overflow-auto scrollbar">
+              <table className="w-full text-sm">
+                <thead className=''>
                   <tr>
-                    <th className="pr-5 text-left text-sm font-medium text-black-300 whitespace-nowrap">Facturas</th>
-                    <th className="pr-5 text-left text-sm font-medium text-black-300 whitespace-nowrap">Proovedores</th>
-                    <th className="pr-5 text-left text-sm font-medium text-black-300 whitespace-nowrap">Monto</th>
-                    <th className="pr-5 text-left text-sm font-medium text-black-300 whitespace-nowrap">Fecha de pago</th>
+                    <th className="payrolls-th">Facturas</th>
+                    <th className="payrolls-th">Proovedores</th>
+                    <th className="payrolls-th">Monto</th>
+                    <th className="payrolls-th">Fecha de pago</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{payroll.facturas}</td>
-                    <td>{payroll.proveedores}</td>
-                    <td>${payroll.monto.toLocaleString()}</td>
-                    <td>{formatDate(payroll.fechaPago)}</td>
+                    <td className='payrolls-td'>{payroll.facturas}</td>
+                    <td className='payrolls-td'>{payroll.proveedores}</td>
+                    <td className='payrolls-td'>${payroll.monto.toLocaleString()}</td>
+                    <td className='payrolls-td'>{formatDate(payroll.fechaPago)}</td>
                   </tr>
                 </tbody>
               </table>

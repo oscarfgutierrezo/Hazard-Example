@@ -1,27 +1,11 @@
 import { useRef, useState } from 'react';
+import { notifications } from '../../data';
 import { useClickOutside } from '../../hooks';
 import { NotebookIcon, CardIcon, ArrowDownIcon, BellIcon } from '../../icons';
 
-export const NavbarDropdownNotifications = () => {
+export const NavbarDropdown = () => {
   const [isOpened, setIsOpened] = useState(false);
   const ref = useRef();
-  const notifications = [
-    {
-      id: 1,
-      description: 'Notificación 1',
-      icon: <NotebookIcon/>
-    },
-    {
-      id: 2,
-      description: 'Notificación 2',
-      icon: <NotebookIcon/>
-    },
-    {
-      id: 3,
-      description: 'Notificación 3',
-      icon: <CardIcon/>
-    },
-  ];
 
   const handleClick = () => {
     setIsOpened(!isOpened);

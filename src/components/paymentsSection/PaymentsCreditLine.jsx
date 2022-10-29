@@ -18,7 +18,7 @@ export const PaymentsCreditLine = () => {
         <h3 className="col-span-2 text-center text-black-700 font-medium sm:text-start lg:text-center xl:text-start">Linea de crédito</h3>
         <p className="col-span-2 text-center text-2xl font-bold text-pink sm:col-span-1 sm:text-start lg:col-span-2 lg:text-center xl:col-span-1 xl:text-start">${formatNumber(creditLine)}</p>
         <div className="col-span-2 justify-self-center sm:col-span-1 sm:justify-self-end lg:col-span-2 lg:justify-self-center xl:col-span-1 xl:justify-self-end">
-          <button type="button" className="w-60 py-1 px-3 text-sm text-white bg-purple rounded-md sm:w-max lg:w-60 xl:w-max" onClick={ handleToggleModal }>Incrementar línea</button>
+          <button type="button" className="w-60 py-1 px-3 text-sm text-white bg-purple/80 rounded-md hover:bg-purple duration-300 sm:w-max lg:w-60 xl:w-max" onClick={ handleToggleModal }>Incrementar línea</button>
         </div>
         <div className="col-span-2">
           <div className="p-4 grid grid-cols-2 border rounded-lg">

@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { useClickOutside } from '../../hooks';
 import { HamburgerIcon } from '../../icons';
-import { NavbarMenuCollapsible, NavbarDropdownNotifications } from '../navbar';
+import { NavbarMenuCollapsible, NavbarDropdown } from '../navbar';
 
 export const Navbar = () => {
   const ref = useRef();
@@ -19,7 +19,7 @@ export const Navbar = () => {
         <img className="" src="./src/assets/logo.png" alt="Logo" />
       </div>
       <div className="col-span-1 justify-self-end order-1 sm:col-span-2 sm:order-2 md:col-span-1">
-        <NavbarDropdownNotifications/>
+        <NavbarDropdown/>
         <button ref={ ref } type="button" className="ml-4 p-1 rounded-md duration-300 hover:bg-black-300/20 md:hidden" onClick={ handleToggleMenu }>
           <HamburgerIcon/>
         </button>

@@ -18,7 +18,7 @@ export const BillsShowModal = ({ isOpened, setIsOpened, billsChecked, bills }) =
         <button type="button" className="absolute top-3 right-3 text-black-700" onClick={ handleClick }>
           <CloseIcon/>
         </button>
-        <div className="max-h-96 flex flex-col gap-6 overflow-auto">
+        <div className="max-h-96 flex flex-col gap-6 overflow-auto scrollbar">
           {
             (!billsForShow.length)
             ?

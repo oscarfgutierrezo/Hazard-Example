@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { buildChartData } from "../../helpers";
 import { mainData } from "../../data";
-import { ChartItemsList, ChartMenuFilter, LineChart } from '../chartSection';
+import { ChartItemsList, ChartDropdown, LineChart } from '../chartSection';
 
 export const ChartSection = () => {
   const items = useMemo(() => buildChartData(mainData.chartData), [mainData]);
@@ -14,7 +14,7 @@ export const ChartSection = () => {
           <h2 className="text-center text-xl font-bold text-black-900 sm:text-left">Rendimiento</h2>
         </div>
         <div className="col-span-3 w-full max-w-[240px] justify-self-center sm:col-span-1 sm:order-3">
-          <ChartMenuFilter items={ items } setItemsChecked={ (items) => setItemsChecked(items)} itemsChecked={ itemsChecked } />
+          <ChartDropdown items={ items } setItemsChecked={ (items) => setItemsChecked(items)} itemsChecked={ itemsChecked } />
         </div>
         <div className="col-span-3 justify-self-center self-center sm:col-span-2 sm:justify-self-start sm:order-2">
           <ChartItemsList items={ itemsChecked }/>

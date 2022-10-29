@@ -29,7 +29,7 @@ export const PaymentsModalCreditLine = ({ isOpened, setIsOpened, creditLine, set
         <form className="flex flex-col items-center gap-3" onSubmit={ handleSubmit }>
           <label htmlFor="new-credit-line" className="mb-5 text-xl font-medium text-black-700">Nueva Línea de Crédito</label>
           <div className="relative w-full">
-            <input type="text" id="new-credit-line" value={newCreditLine} onChange={ handleCredit } className="w-full px-9 py-1 text-center text-black-700 border rounded-md focus:outline-0 focus:border-purple peer"/>
+            <input type="number" id="new-credit-line" value={newCreditLine} onChange={ handleCredit } className="w-full px-9 py-1 text-center text-black-700 border rounded-md focus:outline-0 focus:border-purple peer"/>
             <div className="absolute translate-y-1/2 bottom-1/2 left-3 text-black-300 font-bold peer-focus:text-purple">
               <DollarIcon/>
             </div>
@@ -38,7 +38,7 @@ export const PaymentsModalCreditLine = ({ isOpened, setIsOpened, creditLine, set
             (newCreditLine < creditLine) && 
             <p className='text-center text-sm text-red-500'>Se sugiere no disminuir la línea de crédito</p>
           }
-          <button type="submit" className="w-full px-5 py-1 text-white bg-purple rounded-md disabled:opacity-30">Guardar</button>
+          <button type="submit" className="w-full px-5 py-1 text-white bg-purple/80 rounded-md hover:bg-purple duration-300">Guardar</button>
         </form>
       </div>
     </div>

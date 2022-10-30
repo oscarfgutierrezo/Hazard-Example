@@ -2,7 +2,7 @@ import { itemsNavigation } from '../../data';
 
 export const Sidebar = () => {
   return (
-    <div className="hidden py-3 pr-5 border-r md:flex md:flex-col md:items-center md:gap-10">
+    <div className="py-3 pr-5 hidden border-r md:flex md:flex-col md:items-center md:gap-10">
       <div className="w-10">
         <img src="./src/assets/logo.png" alt="Logo" />
       </div>
@@ -13,7 +13,7 @@ export const Sidebar = () => {
               <a href="#" className="flex items-center gap-3">
                 {item.icon}
               </a>
-              <span className="absolute -translate-y-1/2 left-8 top-1/2 px-2 text-black-500 bg-white border rounded-lg shadow opacity-0 duration-300 group-hover:opacity-100">{item.name}</span>
+              <span className="absolute -translate-y-1/2 left-8 top-1/2 px-2 text-black-500 bg-white opacity-0 border rounded-lg shadow duration-300 group-hover:opacity-100">{item.name}</span>
             </li>
           ))
         }

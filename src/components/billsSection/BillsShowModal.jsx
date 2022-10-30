@@ -3,18 +3,22 @@ import { useClickOutside } from '../../hooks';
 import { CloseIcon } from '../../icons'
 
 export const BillsShowModal = ({ isOpened, setIsOpened, billsChecked, bills }) => {
-  const billsForShow = bills.filter( bill => billsChecked.includes(bill.folio) );
-  const ref = useRef();
+  const modalRef = useRef();
   
+  // Filtrar el array de facturas en función de los checkbox activos
+  const billsForShow = bills.filter( bill => billsChecked.includes(bill.folio) );
+  
+  // Cerrar modal
   const handleClick = () => {
     setIsOpened(false)
   }
 
-  useClickOutside( ref, () => handleClick() );
+  // Cerrar el modal al hacer click por fuera de modalRef
+  useClickOutside( modalRef, () => handleClick() );
     
   return (
     <div className={`${ isOpened ? 'flex' : 'hidden' } fixed top-0 left-0 px-5 w-screen h-screen justify-center items-center bg-black-900/50 z-10`}>
-      <div ref={ ref } className="animate relative w-full max-w-xs p-5 py-10 bg-white rounded-lg sm:px-7">
+      <div ref={ modalRef } className="animate relative w-full max-w-xs p-5 py-10 bg-white rounded-lg sm:px-7">
         <button type="button" className="absolute top-3 right-3 text-black-700" onClick={ handleClick }>
           <CloseIcon/>
         </button>

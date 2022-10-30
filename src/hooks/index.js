@@ -1,4 +1,4 @@
 export * from './useCheckedBills';
 export * from './useCheckedChart';
-export * from './useSort';
+export * from './useSortTable';
 export * from './useClickOutside';

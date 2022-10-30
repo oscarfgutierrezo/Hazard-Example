@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { sortByFolio, sortByProvider, sortByType, sortByAmount, sortByDate } from '../helpers';
 
-export const useSort = ( array, filter ) => {
+export const useSortTable = ( array, filter ) => {
   const [sortedTable, setSortedTable] = useState(array);
   
   useEffect(() => {

@@ -28,7 +28,7 @@ html {
 }
 
 .scrollbar {
-  @apply scrollbar-thin scrollbar-thumb-black-300/50 scrollbar-track-zinc-200 scrollbar-track-rounded-full scrollbar-thumb-rounded-full hover:scrollbar-thumb-black-300/80;
+  @apply scrollbar-thin scrollbar-thumb-black-300/30 scrollbar-track-zinc-100 scrollbar-track-rounded-full scrollbar-thumb-rounded-full hover:scrollbar-thumb-black-300/50 duration-300;
 }
 
 .animate{

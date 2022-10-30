@@ -1,3 +1,3 @@
 export * from './Navbar';
-export * from './NavbarMenuCollapsible';
+export * from './NavbarCollapsibleMenu';
 export * from './NavbarDropdown';

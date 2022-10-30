@@ -3,7 +3,7 @@ import { useState } from 'react';
 export const useCheckedChart = (array) => {
   const [checkedState, setCheckedState] = useState(new Array(array.length).fill(true));
   
-  const handleOnChecked = (position) => {
+  const handleChecked = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
     );
@@ -12,6 +12,6 @@ export const useCheckedChart = (array) => {
   
   return {
     checkedState,
-    handleOnChecked
+    handleChecked
   }
 }

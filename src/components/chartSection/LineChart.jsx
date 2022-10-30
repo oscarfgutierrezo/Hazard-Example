@@ -5,11 +5,11 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 
 ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
 
-export const LineChart = ({ items }) => {
-
+export const LineChart = ({ itemsChecked }) => {
+  // Estado para controlar los datos a mostrar en la gráfica
   const [userData, setUserData] = useState({
     labels: mainData.chartData.labels,
-    datasets: items.map( item => (
+    datasets: itemsChecked.map( item => (
       {
         label: item.name,
         data: item.data,
@@ -24,11 +24,12 @@ export const LineChart = ({ items }) => {
     ))
   })
 
+  // Redibujar la gráfica si el array de items seleccionados cambia (itemsChecked)
   useEffect(() => {
     setUserData(
       {
         labels: mainData.chartData.labels,
-        datasets: items.map( item => (
+        datasets: itemsChecked.map( item => (
           {
             label: item.name,
             data: item.data,
@@ -43,9 +44,9 @@ export const LineChart = ({ items }) => {
         ))
       }
     )
-  }, [items])
+  }, [itemsChecked])
   
-
+  // Características visuales de la gráfica
   const options = {
     responsive: true,
     maintainAspectRatio: false,

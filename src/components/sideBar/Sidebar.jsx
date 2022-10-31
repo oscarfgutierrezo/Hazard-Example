@@ -4,7 +4,7 @@ export const Sidebar = () => {
   return (
     <div className="py-3 pr-5 hidden border-r md:flex md:flex-col md:items-center md:gap-10">
       <div className="w-10">
-        <img src="./src/assets/logo.png" alt="Logo" />
+        <img src="https://i.ibb.co/dpzvnbS/logo.png" alt="Logo" />
       </div>
       <ul className="flex flex-col gap-10">
         {

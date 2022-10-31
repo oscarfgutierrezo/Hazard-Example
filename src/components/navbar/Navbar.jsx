@@ -19,7 +19,7 @@ export const Navbar = () => {
   return (
     <nav className="relative w-full h-min py-3 grid grid-cols-2 items-center gap-2 border-b sm:grid-cols-6 md:px-10">
       <div className="col-span-1 w-10 order-0 md:hidden">
-        <img src="./src/assets/logo.png" alt="Logo" />
+        <img src="https://i.ibb.co/dpzvnbS/logo.png" alt="Logo" />
       </div>
       <div className="col-span-1 justify-self-end order-1 sm:col-span-2 sm:order-2 md:col-span-1">
         <NavbarDropdown/>

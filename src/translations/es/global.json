@@ -2,7 +2,7 @@
   "navbar": {
     "hello": "Hola",
     "have": "Tienes",
-    "alerts": "alertas",
+    "alerts": "{{quantity}} alertas",
     "waiting": "esperando por ti"
   },
   "navbarDropdown": {
@@ -71,7 +71,8 @@
     "bills": "Facturas",
     "providers": "Proveedores",
     "amount": "Monto",
-    "date": "Fecha de pago"
+    "date": "Fecha de pago",
+    "billOf": "Facturas del {{day}} de octubre"
   },
   "paymentsDropdown": {
     "reviced": "Revisadas",

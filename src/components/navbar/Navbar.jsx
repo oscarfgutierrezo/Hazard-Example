@@ -56,7 +56,7 @@ export const Navbar = () => {
       <div className="col-span-2 order-4 sm:col-span-3 sm:order-1 md:col-span-5 ">
         <div className='flex flex-col text-center sm:text-left md:flex-row md:items-baseline'>
           <h2 className="text-2xl font-bold text-black-900">{t("navbar.hello")},<span className="font-normal"> Andrea Sotil</span></h2>
-          <p className="font-medium text-black-300 md:pl-6">{t("navbar.have")} <span className="text-blue">3 {t("navbar.alerts")}</span> {t("navbar.waiting")}</p>
+          <p className="font-medium text-black-300 md:pl-6">{t("navbar.have")} <span className="text-blue">{ t("navbar.alerts", {quantity: 3}) }</span> {t("navbar.waiting")}</p>
         </div>
       </div>
     </nav>

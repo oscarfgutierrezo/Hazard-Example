@@ -29,9 +29,10 @@ export const PaymentsPayrolls = () => {
         { // Crear tablas  partir del array de nóminas filtradas
           payrollsFiltered.map( payroll => {
             const { id, fechaPago, facturas, proveedores, monto } = payroll;
+            const { day } = cutDate( fechaPago );
             return (
               <div key={ id } className="p-3 pb-0">
-                <h4 className="pb-4 font-medium text-black-500">Facturas del {cutDate( fechaPago )}</h4>
+                <h4 className="pb-4 font-medium text-black-500">{ t( "paymentsPayrolls.billOf", {day: day} ) }</h4>
                 <div className="pb-2 overflow-auto scrollbar">
                   <table className="w-full text-sm">
                     <thead>

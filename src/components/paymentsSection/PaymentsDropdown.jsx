@@ -29,7 +29,7 @@ export const PaymentsDropdown = ({ setFilterSelected, filterSelected }) => {
       <div className={`${isOpened ? 'max-h-40 py-2' : 'max-h-0'} absolute top-8 right-0 left-0 px-3 overflow-hidden bg-white rounded-lg shadow-lg z-10 transition-all ease-in-out duration-500`}>
         {
           payrollsFilterOptions.map( ( option, index ) => (
-            <button key={ index } className="ml-2 py-1 text-sm font-medium text-black-500" value={option} onClick={ handleOptionClick }>{option}</button>
+            <button key={ index } className="w-full ml-2 py-1 text-left text-sm font-medium text-black-500" value={option} onClick={ handleOptionClick }>{option}</button>
           ))
         }
       </div>

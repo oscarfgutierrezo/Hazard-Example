@@ -9,19 +9,22 @@ export const LineChart = ({ itemsChecked }) => {
   // Estado para controlar los datos a mostrar en la gráfica
   const [userData, setUserData] = useState({
     labels: mainData.chartData.labels,
-    datasets: itemsChecked.map( item => (
-      {
-        label: item.name,
-        data: item.data,
-        borderColor: item.color,
-        backgroundColor: item.backgroundColor,
-        borderWidth: 2,
-        tension: 0.4,
-        radius: '0',
-        pointStyle: 'none',
-        fill: true,
-      }
-    ))
+    datasets: itemsChecked.map( item => {
+      const { name, data, color, backgroundColor } = item;
+      return (
+        {
+          label: name,
+          data: data,
+          borderColor: color,
+          backgroundColor: backgroundColor,
+          borderWidth: 2,
+          tension: 0.4,
+          radius: '0',
+          pointStyle: 'none',
+          fill: true,
+        }
+      )
+    })
   })
 
   // Redibujar la gráfica si el array de items seleccionados cambia (itemsChecked)
@@ -29,19 +32,22 @@ export const LineChart = ({ itemsChecked }) => {
     setUserData(
       {
         labels: mainData.chartData.labels,
-        datasets: itemsChecked.map( item => (
-          {
-            label: item.name,
-            data: item.data,
-            borderColor: item.color,
-            backgroundColor: item.backgroundColor,
-            borderWidth: 2,
-            tension: 0.4,
-            radius: '0',
-            pointStyle: 'none',
-            fill: true,
-          }
-        ))
+        datasets: itemsChecked.map( item => {
+          const { name, data, color, backgroundColor } = item;
+          return (
+            {
+              label: name,
+              data: data,
+              borderColor: color,
+              backgroundColor: backgroundColor,
+              borderWidth: 2,
+              tension: 0.4,
+              radius: '0',
+              pointStyle: 'none',
+              fill: true,
+            }
+          )
+        })
       }
     )
   }, [itemsChecked])

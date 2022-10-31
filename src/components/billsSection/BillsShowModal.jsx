@@ -28,21 +28,24 @@ export const BillsShowModal = ({ isOpened, setIsOpened, billsChecked, bills }) =
             ?
             <p className="py-10 text-center text-xl font-medium text-black-500">Selecciona una o varias facturas para ver los detalles</p>
             :
-            billsForShow.map( bill => (
-              <div key={bill.folio} className="text-black-300">
-                <h3 className="pb-5 text-center text-2xl font-medium text-black-700">Factura N°{bill.folio}</h3>
-                <p>Proveedor:</p>
-                <p className="pb-2 font-medium text-black-500">{bill.proveedor}</p>
-                <p>Tipo:</p>
-                <p className="pb-2 font-medium text-black-500">{bill.tipo}</p >
-                <p>Monto:</p>
-                <p className="pb-2 font-medium text-black-500">{bill.monto}</p >
-                <p>Fecha de pago:</p>
-                <p className="pb-2 font-medium text-black-500">{bill.fechaPago}</p>
-                <p>Detalles:</p>
-                <p className="pb-2 font-medium text-black-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-              </div>
-            ))
+            billsForShow.map( bill => {
+              const { folio, proveedor, tipo, monto, fechaPago } = bill;
+              return (
+                <div key={ folio } className="text-black-300">
+                  <h3 className="pb-5 text-center text-2xl font-medium text-black-700">Factura N°{ folio }</h3>
+                  <p>Proveedor:</p>
+                  <p className="pb-2 font-medium text-black-500">{ proveedor }</p>
+                  <p>Tipo:</p>
+                  <p className="pb-2 font-medium text-black-500">{ tipo }</p >
+                  <p>Monto:</p>
+                  <p className="pb-2 font-medium text-black-500">{ monto }</p >
+                  <p>Fecha de pago:</p>
+                  <p className="pb-2 font-medium text-black-500">{ fechaPago }</p>
+                  <p>Detalles:</p>
+                  <p className="pb-2 font-medium text-black-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                </div>
+              )
+            })
           }
         </div>
       </div>

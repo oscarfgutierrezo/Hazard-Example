@@ -13,7 +13,7 @@ export const ChartSection = () => {
   return (
     <div className="grid grid-cols-3 gap-4">
       <div className="col-span-3 pb-3 sm:order-1">
-        <h2 className="text-center text-xl font-bold text-black-900 sm:text-left">Rendimiento</h2>
+        <h2 className="text-center text-xl font-bold text-black-900 sm:text-left">Performance</h2>
       </div>
       <div className="col-span-3 justify-self-center w-full max-w-[240px] sm:col-span-1 sm:order-3">
         <ChartDropdown items={ items } itemsChecked={ itemsChecked } onItemsChecked={ (items) => setItemsChecked(items)} />

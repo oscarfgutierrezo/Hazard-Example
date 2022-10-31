@@ -37,17 +37,20 @@ export const BillsOrderModal = ({ isOpened, setIsOpened, filterSelected, setFilt
         <h3 className="pb-7 text-center text-xl font-medium text-black-700">Ordenar Facturas por</h3>
         <form className="text-sm text-black-700" onSubmit={ handleSubmit }>
           {
-            billsFilters.map( filter => (
-              <div>
+            billsFilters.map( (filter, index) => (
+              <div key={ index }>
                 <p className="font-medium text-black-500">{filter.category}</p>
                 <div className="pt-1 pb-4 grid grid-cols-2">
                   {
-                    filter.options.map( option => (
-                      <div>
-                        <input type="radio" name="filter-selected" value={option.key} id={option.key} checked={ radioSelected === option.key } onChange={ handleSelect }/>
-                        <label className="pl-1" htmlFor={option.key}>{option.name}</label>
-                      </div>
-                    ))
+                    filter.options.map( option => {
+                      const { key, name } = option;
+                      return (
+                        <div key={ key }>
+                          <input type="radio" name="filter-selected" value={ key } id={ key } checked={ radioSelected === key } onChange={ handleSelect }/>
+                          <label className="pl-1" htmlFor={ key }>{ name }</label>
+                        </div>
+                      )
+                    })
                   }
                 </div>
               </div>

@@ -24,13 +24,16 @@ export const NavbarDropdown = () => {
       </button>
       <ul className={`${isOpened ? 'max-h-40' : 'max-h-0'} absolute top-10 right-0 w-max px-3 overflow-hidden bg-white rounded-lg shadow-lg z-10 transition-all ease-in-out duration-500`}>
         {
-          notifications.map( notification => (
-            <li key={notification.id} className="my-1 py-1 px-3 text-black-500 border-b duration-300 cursor-pointer hover:text-pink hover:bg-lightpurple" onClick={ () => setIsOpened(false) }>
-              <a href='#' className="flex items-center gap-3" onClick={ handleClick }>
-                {notification.icon}{notification.description}
-              </a>
-            </li>
-          ))
+          notifications.map( notification => {
+            const { id, icon, description } = notification;
+            return (
+              <li key={ id } className="my-1 py-1 px-3 text-black-500 border-b duration-300 cursor-pointer hover:text-pink hover:bg-lightpurple" onClick={ () => setIsOpened(false) }>
+                <a href='#' className="flex items-center gap-3" onClick={ handleClick }>
+                  { icon }{ description }
+                </a>
+              </li>
+            )
+          })
         }
       </ul>
     </div>

@@ -2,6 +2,7 @@ export const payrollsFilterOptions = [ 'Revisadas', 'En proceso de revisión', '
 
 export const payrollsData = [
   {
+    id: 1,
     facturas: 238,
     proveedores: 32,
     monto: 148017159,
@@ -9,6 +10,7 @@ export const payrollsData = [
     estado: 'En proceso de revisión'
   },
   {
+    id: 2,
     facturas: 134,
     proveedores: 34,
     monto: 663862159,
@@ -16,6 +18,7 @@ export const payrollsData = [
     estado: 'En proceso de revisión'
   },
   {
+    id: 3,
     facturas: 189,
     proveedores: 39,
     monto: 238086159,
@@ -23,6 +26,7 @@ export const payrollsData = [
     estado: 'Pendientes por revisar'
   },
   {
+    id: 4,
     facturas: 163,
     proveedores: 33,
     monto: 200817922,
@@ -30,6 +34,7 @@ export const payrollsData = [
     estado: 'Pendientes por revisar'
   },
   {
+    id: 5,
     facturas: 242,
     proveedores: 29,
     monto: 234072192,
@@ -37,6 +42,7 @@ export const payrollsData = [
     estado: 'Revisadas'
   },
   {
+    id: 6,
     facturas: 132,
     proveedores: 25,
     monto: 343817923,

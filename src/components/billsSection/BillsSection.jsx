@@ -54,16 +54,19 @@ export const BillsSection = () => {
             </thead>
             <tbody>
               {
-                sortedTable.map( row => (
-                  <tr key={row.folio}>
-                    <td className='bills-td'><input type="checkbox" id={ row.folio } value={ row.folio } checked={ billsChecked.includes(row.folio) } onChange={ handleOnChecked } /></td>
-                    <td className='bills-td'>{row.folio}</td>
-                    <td className='bills-td'>{row.proveedor}</td>
-                    <td className='bills-td'>{row.tipo}</td>
-                    <td className='bills-td'>{row.monto}</td>
-                    <td className='bills-td'>{row.fechaPago}</td>
-                  </tr>
-                ))
+                sortedTable.map( bill => {
+                  const { folio, proveedor, tipo, monto, fechaPago } = bill
+                  return (
+                    <tr key={ folio }>
+                      <td className='bills-td'><input type="checkbox" id={ folio } value={ folio } checked={ billsChecked.includes(folio) } onChange={ handleOnChecked } /></td>
+                      <td className='bills-td'>{ folio }</td>
+                      <td className='bills-td'>{proveedor}</td>
+                      <td className='bills-td'>{tipo}</td>
+                      <td className='bills-td'>{monto}</td>
+                      <td className='bills-td'>{fechaPago}</td>
+                    </tr>
+                  )
+                })
               }
             </tbody>
           </table>

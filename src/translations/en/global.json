@@ -1,0 +1,70 @@
+{
+  "navbar": {
+    "hello": "Hi",
+    "have": "There are",
+    "alerts": "alerts",
+    "waiting": "waiting for you"
+  },
+  "navbarDropdown": {
+    "notifications": ["notification 1", "notification 2", "notification 3"]
+  },
+  "navigation": {
+    "options": ["Home", "Payments", "Payrolls", "Balances"]
+  },
+
+
+  "chartSection": {
+    "performance": "Performance"
+  },
+  "chartDropdown": {
+    "filter": "Filter by"
+  },
+  "lineChart": {
+    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  },
+
+
+  "billsSection": {
+    "billsToPay": "Invoices payable",
+    "show": "Show all",
+    "sort": "Sort",
+    "columns": ["Folio", "Provider", "Type", "Amount", "Payment date"],
+    "transferred": "Transferred",
+    "notTransferred": "Not transferred"
+  },
+  "billsShowModal": {
+    "message": "Select one or multiple bills for details",
+    "bill": "Bill",
+    "provider": "Provider",
+    "type": "Type",
+    "amount": "Amount",
+    "date": "Payment date",
+    "details": "Details"
+  },
+  "billsSortModal": {
+    "title": "Sort bills by",
+    "ascending": "Ascending",
+    "descending": "Descending",
+    "transferred": "Transferred",
+    "notTransferred": "Not transferred",
+    "sort": "Sort"
+  },
+
+
+  "paymentsSection": {
+    "payments": "Payments"
+  },
+  "paymentsCreditLine": {
+    "creditLine": "Credit Line",
+    "increase": "Increase Line",
+    "spent": "Spent",
+    "available": "Available",
+    "nextDebt": "Next debt to pay",
+    "date": "07 October, 2021"
+  },
+  "paymentsModalCredit": {
+    "newLine": "New Credit Line",
+    "save": "Save",
+    "alert": "It is recommended not decrease the credit line"
+  }
+}

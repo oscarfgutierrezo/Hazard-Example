@@ -1,9 +1,13 @@
 import { useState, useRef } from 'react';
 import { billsFilters } from '../../data';
 import { useClickOutside } from '../../hooks';
-import { CloseIcon } from '../../icons'
+import { CloseIcon } from '../../icons';
+import { useTranslation } from 'react-i18next';
 
 export const BillsOrderModal = ({ isOpened, setIsOpened, filterSelected, setFilterSelected }) => {
+  // Control sobre el idioma seleccionado
+  const [t] = useTranslation('global');
+  
   const modalRef = useRef();
   
   // Control sobre los radio inputs
@@ -34,7 +38,7 @@ export const BillsOrderModal = ({ isOpened, setIsOpened, filterSelected, setFilt
         <button type="button" className="absolute top-3 right-3 text-black-700" onClick={ resetRadioSelected }>
           <CloseIcon/>
         </button>
-        <h3 className="pb-7 text-center text-xl font-medium text-black-700">Ordenar Facturas por</h3>
+        <h3 className="pb-7 text-center text-xl font-medium text-black-700">{ t("billsSortModal.title") }</h3>
         <form className="text-sm text-black-700" onSubmit={ handleSubmit }>
           {
             billsFilters.map( (filter, index) => (
@@ -47,7 +51,7 @@ export const BillsOrderModal = ({ isOpened, setIsOpened, filterSelected, setFilt
                       return (
                         <div key={ key }>
                           <input type="radio" name="filter-selected" value={ key } id={ key } checked={ radioSelected === key } onChange={ handleSelect }/>
-                          <label className="pl-1" htmlFor={ key }>{ name }</label>
+                          <label className="pl-1" htmlFor={ key }>{ t(`billsSortModal.${name}`) }</label>
                         </div>
                       )
                     })
@@ -56,7 +60,7 @@ export const BillsOrderModal = ({ isOpened, setIsOpened, filterSelected, setFilt
               </div>
             ))
           }
-          <button type="submit" className="mt-5 w-full max-w-xs py-1 px-5 text-white bg-purple/80 rounded-md duration-300 hover:bg-purple">Ordenar</button>
+          <button type="submit" className="mt-5 w-full max-w-xs py-1 px-5 text-white bg-purple/80 rounded-md duration-300 hover:bg-purple">{ t("billsSortModal.sort") }</button>
         </form>
       </div>
     </div>

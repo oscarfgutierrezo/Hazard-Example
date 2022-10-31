@@ -1,9 +1,14 @@
 import { useRef, useState } from 'react';
 import { useCheckedChart, useClickOutside } from '../../hooks';
 import { ArrowDownIcon } from "../../icons";
+import { useTranslation } from 'react-i18next';
 
 export const ChartDropdown = ({ items, itemsChecked, onItemsChecked }) => {
+  // Control sobre el idioma seleccionado
+  const [t] = useTranslation('global');
+  
   const [ isOpened, setIsOpened ] = useState(false);
+
   const containerRef = useRef();
 
   // Abrir y cerrar el dropdown
@@ -31,7 +36,7 @@ export const ChartDropdown = ({ items, itemsChecked, onItemsChecked }) => {
   
   return (
     <div ref={ containerRef } className='relative'>
-      <button type="button" className="w-full py-0.5 px-3 flex justify-between items-center text-sm font-medium text-black-500 border-2 border-black-300 rounded-md" onClick={ handleClick }>Filtrar por
+      <button type="button" className="w-full py-0.5 px-3 flex justify-between items-center text-sm font-medium text-black-500 border-2 border-black-300 rounded-md" onClick={ handleClick }>{t("chartDropdown.filter")}
         <ArrowDownIcon/>
       </button>
       <div className={`${isOpened ? 'max-h-40' : 'max-h-0'} absolute top-8 right-0 left-0 px-3 overflow-hidden bg-white rounded-lg shadow-lg z-10 transition-all ease-in-out duration-500`}>

@@ -1,0 +1,69 @@
+{
+  "navbar": {
+    "hello": "Hola",
+    "have": "Tienes",
+    "alerts": "alertas",
+    "waiting": "esperando por ti"
+  },
+  "navbarDropdown": {
+    "notifications": ["Notificación 1", "Notificación 2", "Notificación 3"]
+  },
+  "navigation": {
+    "options": ["Inicio", "Pagos", "Nóminas", "Saldos"]
+  },
+
+
+  "chartSection": {
+    "performance": "Rendimiento"
+  },
+  "chartDropdown": {
+    "filter": "Filtrar por"
+  },
+  "lineChart": {
+    "months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"]
+  },
+
+  "billsSection": {
+    "billsToPay": "Facturas por pagar",
+    "show": "Ver todo",
+    "sort": "Ordenar",
+    "columns": ["N° Folio", "Proveedor", "Tipo", "Monto", "Fecha de pago"],
+    "transferred": "Cedida",
+    "notTransferred": "No cedida"
+  },
+  "billsShowModal": {
+    "message": "Selecciona una o varias facturas para ver los detalles",
+    "bill": "Factura N°",
+    "provider": "Proveedor",
+    "type": "Tipo",
+    "amount": "Monto",
+    "date": "Fecha de pago",
+    "details": "Detalles"
+  },
+  "billsSortModal": {
+    "title": "Ordenar facturas por",
+    "ascending": "Ascendente",
+    "descending": "Descendente",
+    "transferred": "Cedida",
+    "notTransferred": "No cedida",
+    "sort": "Ordenar"
+  },
+
+
+  "paymentsSection": {
+    "payments": "Pagos"
+  },
+  "paymentsCreditLine": {
+    "creditLine": "Linea de crédito",
+    "increase": "Incrementar Línea",
+    "spent": "Consumido",
+    "available": "Disponible",
+    "nextDebt": "Próxima deuda a pagar",
+    "date": "07 de octubre de 2021"
+  },
+  "paymentsModalCredit": {
+    "newLine": "Nueva Línea de crédito",
+    "save": "Guardar",
+    "alert": "Se sugiere no disminuir la línea de crédito"
+  }
+}

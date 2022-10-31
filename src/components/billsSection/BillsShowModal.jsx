@@ -1,8 +1,12 @@
 import { useRef } from 'react';
 import { useClickOutside } from '../../hooks';
-import { CloseIcon } from '../../icons'
+import { CloseIcon } from '../../icons';
+import { useTranslation } from 'react-i18next';
 
 export const BillsShowModal = ({ isOpened, setIsOpened, billsChecked, bills }) => {
+  // Control sobre el idioma seleccionado
+  const [t] = useTranslation('global');
+  
   const modalRef = useRef();
   
   // Filtrar el array de facturas en función de los checkbox activos
@@ -26,22 +30,22 @@ export const BillsShowModal = ({ isOpened, setIsOpened, billsChecked, bills }) =
           {
             (!billsForShow.length)
             ?
-            <p className="py-10 text-center text-xl font-medium text-black-500">Selecciona una o varias facturas para ver los detalles</p>
+            <p className="py-10 text-center text-xl font-medium text-black-500">{ t("billsShowModal.message") }</p>
             :
             billsForShow.map( bill => {
               const { folio, proveedor, tipo, monto, fechaPago } = bill;
               return (
                 <div key={ folio } className="text-black-300">
-                  <h3 className="pb-5 text-center text-2xl font-medium text-black-700">Factura N°{ folio }</h3>
-                  <p>Proveedor:</p>
+                  <h3 className="pb-5 text-center text-2xl font-medium text-black-700">{ t("billsShowModal.bill") } { folio }</h3>
+                  <p>{ t("billsShowModal.provider") }:</p>
                   <p className="pb-2 font-medium text-black-500">{ proveedor }</p>
-                  <p>Tipo:</p>
+                  <p>{ t("billsShowModal.type") }:</p>
                   <p className="pb-2 font-medium text-black-500">{ tipo }</p >
-                  <p>Monto:</p>
+                  <p>{ t("billsShowModal.amount") }:</p>
                   <p className="pb-2 font-medium text-black-500">{ monto }</p >
-                  <p>Fecha de pago:</p>
+                  <p>{ t("billsShowModal.date") }:</p>
                   <p className="pb-2 font-medium text-black-500">{ fechaPago }</p>
-                  <p>Detalles:</p>
+                  <p>{ t("billsShowModal.details") }:</p>
                   <p className="pb-2 font-medium text-black-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                 </div>
               )

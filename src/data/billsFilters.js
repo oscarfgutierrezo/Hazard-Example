@@ -3,11 +3,11 @@ export const billsFilters = [
     category: 'N° Folio',
     options: [
       {
-        name: 'Ascendente',
+        name: 'ascending',
         key: 'folio-asc'
       },
       {
-        name: 'Descendente',
+        name: 'descending',
         key: 'folio-des'
       }
     ],
@@ -16,11 +16,11 @@ export const billsFilters = [
     category: 'Proveedor',
     options: [
       {
-        name: 'Ascendente',
+        name: 'ascending',
         key: 'proveedor-asc'
       },
       {
-        name: 'Descendente',
+        name: 'descending',
         key: 'proveedor-des'
       }
     ],
@@ -29,11 +29,11 @@ export const billsFilters = [
     category: 'Tipo',
     options: [
       {
-        name: 'Cedidas',
+        name: 'transferred',
         key: 'tipo-ced'
       },
       {
-        name: 'No Cedidas',
+        name: 'notTransferred',
         key: 'tipo-noced'
       }
     ],
@@ -42,11 +42,11 @@ export const billsFilters = [
     category: 'Monto',
     options: [
       {
-        name: 'Ascendente',
+        name: 'ascending',
         key: 'monto-asc'
       },
       {
-        name: 'Descendente',
+        name: 'descending',
         key: 'monto-des'
       }
     ],
@@ -55,11 +55,11 @@ export const billsFilters = [
     category: 'Fecha',
     options: [
       {
-        name: 'Ascendente',
+        name: 'ascending',
         key: 'fecha-ant'
       },
       {
-        name: 'Descendente',
+        name: 'descending',
         key: 'fecha-rec'
       }
     ],

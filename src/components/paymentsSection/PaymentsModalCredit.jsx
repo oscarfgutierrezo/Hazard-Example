@@ -1,8 +1,12 @@
 import { useRef, useState } from 'react';
 import { useClickOutside } from '../../hooks';
-import { CloseIcon, DollarIcon } from '../../icons'
+import { CloseIcon, DollarIcon } from '../../icons';
+import { useTranslation } from 'react-i18next';
 
 export const PaymentsModalCreditLine = ({ isOpened, setIsOpened, creditLine, setCreditLine }) => {
+  // Control sobre el idioma seleccionado
+  const [t] = useTranslation('global');
+  
   const modalRef = useRef();
 
   // Controlar el valor del input
@@ -34,7 +38,7 @@ export const PaymentsModalCreditLine = ({ isOpened, setIsOpened, creditLine, set
           <CloseIcon/>
         </button>
         <form className="flex flex-col items-center gap-3" onSubmit={ handleSubmit }>
-          <label htmlFor="new-credit-line" className="mb-5 text-xl font-medium text-black-700">Nueva Línea de Crédito</label>
+          <label htmlFor="new-credit-line" className="mb-5 text-xl font-medium text-black-700">{ t("paymentsModalCredit.newLine") }</label>
           <div className="relative w-full">
             <input type="number" id="new-credit-line" value={newCreditLine} onChange={ handleChange } className="w-full py-1 px-9 text-center text-black-700 border rounded-md focus:border-purple focus:outline-0 peer"/>
             <div className="absolute translate-y-1/2 bottom-1/2 left-3 font-bold text-black-300 peer-focus:text-purple">
@@ -43,9 +47,9 @@ export const PaymentsModalCreditLine = ({ isOpened, setIsOpened, creditLine, set
           </div>
           {
             (newCreditLine < creditLine) && 
-            <p className='text-center text-sm text-red-500'>Se sugiere no disminuir la línea de crédito</p>
+            <p className='text-center text-sm text-red-500'>{ t("paymentsModalCredit.alert") }</p>
           }
-          <button type="submit" className="w-full py-1 px-5 text-white bg-purple/80 rounded-md duration-300 hover:bg-purple">Guardar</button>
+          <button type="submit" className="w-full py-1 px-5 text-white bg-purple/80 rounded-md duration-300 hover:bg-purple">{ t("paymentsModalCredit.save") }</button>
         </form>
       </div>
     </div>

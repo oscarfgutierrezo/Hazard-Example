@@ -2,8 +2,13 @@ import { useRef, useState } from 'react';
 import { NavbarCollapsibleMenu, NavbarDropdown } from '../navbar';
 import { useClickOutside } from '../../hooks';
 import { HamburgerIcon } from '../../icons';
+import { BritishFlag } from '../../icons/BritishFlag';
+import { SpanishFlag } from '../../icons/SpanishFlag';
+import { useTranslation } from 'react-i18next';
 
 export const Navbar = () => {
+  const [t, i18n] = useTranslation('global');
+  
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
   const buttonRef = useRef();
@@ -22,18 +27,31 @@ export const Navbar = () => {
         <img src="https://i.ibb.co/dpzvnbS/logo.png" alt="Logo" />
       </div>
       <div className="col-span-1 justify-self-end order-1 sm:col-span-2 sm:order-2 md:col-span-1">
-        <NavbarDropdown/>
-        <button ref={ buttonRef } type="button" className="ml-4 p-1 rounded-md duration-300 hover:bg-black-300/20 md:hidden" onClick={ handleClick }>
-          <HamburgerIcon/>
-        </button>
+        <div className='flex items-center gap-2 sm:gap-4'>
+          <NavbarDropdown/>
+          { // Renderizado condicional del botón en función del idioma seleccionado
+            (i18n.resolvedLanguage === 'es') 
+            ?
+              <button className='h-7 w-auto overflow-hidden rounded-full' onClick={ () => i18n.changeLanguage('en') }>
+                <BritishFlag/>
+              </button>
+            :
+              <button className='h-7 w-auto overflow-hidden rounded-full' onClick={ () => i18n.changeLanguage('es') }>
+                <SpanishFlag/>
+              </button>
+          }
+          <button ref={ buttonRef } type="button" className="p-1 rounded-md duration-300 hover:bg-black-300/20 md:hidden" onClick={ handleClick }>
+            <HamburgerIcon/>
+          </button>
+        </div>
       </div>
       <div className='col-span-2 order-2 sm:col-span-6 sm:order-3 md:hidden'>
         <NavbarCollapsibleMenu isOpened={ isMenuOpened } />
       </div>
       <div className="col-span-2 order-4 sm:col-span-3 sm:order-1 md:col-span-5 ">
         <div className='flex flex-col text-center sm:text-left md:flex-row md:items-baseline'>
-          <h2 className="text-2xl font-bold text-black-900">Hola,<span className="font-normal"> Andrea Sotil</span></h2>
-          <p className="font-medium text-black-300 md:pl-6">Tienes <span className="text-blue">3 alertas</span> esperando por ti</p>
+          <h2 className="text-2xl font-bold text-black-900">{t("navbar.hello")},<span className="font-normal"> Andrea Sotil</span></h2>
+          <p className="font-medium text-black-300 md:pl-6">{t("navbar.have")} <span className="text-blue">3 {t("navbar.alerts")}</span> {t("navbar.waiting")}</p>
         </div>
       </div>
     </nav>

@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react';
 import { mainData } from '../../data';
+import { useTranslation } from 'react-i18next';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js';
 
 ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
 
 export const LineChart = ({ itemsChecked }) => {
+  const [t] = useTranslation('global');
+  var months = t('lineChart.months', { returnObjects: true});
+
   // Estado para controlar los datos a mostrar en la gráfica
   const [userData, setUserData] = useState({
-    labels: mainData.chartData.labels,
+    labels: mainData.chartData.labels.map( (month, index) => months[index] ),
     datasets: itemsChecked.map( item => {
       const { name, data, color, backgroundColor } = item;
       return (
@@ -31,7 +35,7 @@ export const LineChart = ({ itemsChecked }) => {
   useEffect(() => {
     setUserData(
       {
-        labels: mainData.chartData.labels,
+        labels: mainData.chartData.labels.map( (month, index) => months[index] ),
         datasets: itemsChecked.map( item => {
           const { name, data, color, backgroundColor } = item;
           return (
@@ -50,7 +54,7 @@ export const LineChart = ({ itemsChecked }) => {
         })
       }
     )
-  }, [itemsChecked])
+  }, [itemsChecked, t])
   
   // Características visuales de la gráfica
   const options = {

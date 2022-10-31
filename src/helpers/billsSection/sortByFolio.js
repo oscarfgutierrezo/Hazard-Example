@@ -1,3 +1,5 @@
+// Comparar dos enteros
+
 export const sortByFolio = ( array, filter ) => {
   const arrayOrdened = [...array].sort(( item1, item2 ) => {
     // Reordenar el array mediante la comparación de los datos

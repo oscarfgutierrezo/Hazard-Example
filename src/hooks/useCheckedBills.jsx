@@ -1,9 +1,11 @@
+// Controlar las facturas seleccionadas por el usuario
+
 import { useState } from 'react';
 
 export const useCheckedBills = (bills) => {
   const [billsChecked, setBillsCkecked] = useState([]);
   
-  // Agregar o eliminar el nnúmero de cada folio del array en función del estado del checkbox asociado a cada uno
+  // Agregar o eliminar el número de cada folio del array en función del estado del checkbox asociado a cada uno
   const handleOnChecked = ({ target }) => {
     const numberFolio = Number(target.value)
     if(billsChecked.includes(numberFolio)) {

@@ -7,10 +7,13 @@ import { SpanishFlag } from '../../icons/SpanishFlag';
 import { useTranslation } from 'react-i18next';
 
 export const Navbar = () => {
+  // Referencia al idioma seleccionado
   const [t, i18n] = useTranslation('global');
   
+  // Control sobre el estado del menu desplegable
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
+  // Referenciar el botón que controla el despliegue del menú
   const buttonRef = useRef();
 
   // Abrir y cerrar el menú
@@ -29,6 +32,7 @@ export const Navbar = () => {
       <div className="col-span-1 justify-self-end order-1 sm:col-span-2 sm:order-2 md:col-span-1">
         <div className='flex items-center gap-2 sm:gap-4'>
           <NavbarDropdown/>
+          
           { // Renderizado condicional del botón en función del idioma seleccionado
             (i18n.resolvedLanguage === 'es') 
             ?
@@ -40,6 +44,7 @@ export const Navbar = () => {
                 <SpanishFlag/>
               </button>
           }
+          
           <button ref={ buttonRef } type="button" className="p-1 rounded-md duration-300 hover:bg-black-300/20 md:hidden" onClick={ handleClick }>
             <HamburgerIcon/>
           </button>

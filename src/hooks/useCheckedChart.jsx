@@ -1,3 +1,5 @@
+// Controlar los items seleccionados por el usuario para mostrar en la gráfica
+
 import { useState } from 'react';
 
 export const useCheckedChart = (array) => {

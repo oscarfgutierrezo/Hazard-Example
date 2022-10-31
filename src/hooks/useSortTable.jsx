@@ -1,10 +1,11 @@
+// Ejecutar una de las funciones para reordenar el array de facturas de acuerdo al filtro seleccionado en billsSection
+
 import { useEffect, useState } from 'react';
 import { sortByFolio, sortByProvider, sortByType, sortByAmount, sortByDate } from '../helpers';
 
 export const useSortTable = ( array, filter ) => {
   const [sortedTable, setSortedTable] = useState(array);
   
-  // Ejecutar una de las funciones para reordenar el array de acuerdo al filtro seleccionado
   useEffect(() => {
     switch (filter) {
       case 'folio-asc':

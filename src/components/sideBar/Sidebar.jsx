@@ -11,10 +11,15 @@ export const Sidebar = () => {
         <img src="https://i.ibb.co/dpzvnbS/logo.png" alt="Logo" />
       </div>
       <ul className="flex flex-col gap-10">
-        {
+
+        { // Iterar para crear las opciones de navegación
           itemsNavigation.map( ( item, index ) => {
             const { id, icon } = item;
+
+            // Array con los nombres traducibles de las opciones de navegación
             const names = t('navigation.options', { returnObjects: true});
+
+            // Asociar cada item de navegación con su correspondiente nombre traducible
             const name = names[index];
             return (
               <li key={ id } className="relative py-1 text-black-500 duration-300 cursor-pointer hover:text-pink group">
@@ -26,6 +31,7 @@ export const Sidebar = () => {
             )
           })
         }
+        
       </ul>
     </div>
   )

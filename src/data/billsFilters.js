@@ -1,3 +1,5 @@
+// Filtros disponibles oara organizar la información de la tabla de facturas por pagar
+
 export const billsFilters = [
   {
     category: 'N° Folio',

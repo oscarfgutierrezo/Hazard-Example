@@ -1,3 +1,5 @@
+// Información de las notificaciones a mostrar en el dropdown del navbar
+
 import { NotebookIcon, CardIcon } from '../icons';
 
 export const notifications = [

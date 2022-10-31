@@ -7,8 +7,10 @@ export const ChartDropdown = ({ items, itemsChecked, onItemsChecked }) => {
   // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
+  // Control sobre el estado del dropdown
   const [ isOpened, setIsOpened ] = useState(false);
 
+  // Referencia al contenedor del dropdown
   const containerRef = useRef();
 
   // Abrir y cerrar el dropdown
@@ -40,7 +42,8 @@ export const ChartDropdown = ({ items, itemsChecked, onItemsChecked }) => {
         <ArrowDownIcon/>
       </button>
       <div className={`${isOpened ? 'max-h-40' : 'max-h-0'} absolute top-8 right-0 left-0 px-3 overflow-hidden bg-white rounded-lg shadow-lg z-10 transition-all ease-in-out duration-500`}>
-        {
+        
+        { // Iterar sobre los items para crear las opciones de selección
           items.map( (item, index) => (
             <div key={item.id} className="py-1 flex items-center">
               <input type="checkbox" id={item.id} value={item.id} checked={checkedState[index]} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" onChange={(e) => handleChange(e, index)}/>
@@ -48,6 +51,7 @@ export const ChartDropdown = ({ items, itemsChecked, onItemsChecked }) => {
             </div>
           ))
         }
+        
       </div>
     </div>
   )

@@ -1,3 +1,5 @@
+// Para los items 1 y 2 se conservan los colores incluidos en el diseño, a partir del item 3 se generan de manera aleatoria
+
 export const randomColor = (item) => {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
@@ -5,7 +7,6 @@ export const randomColor = (item) => {
   var rgb;
   var rgba;
 
-  // Para los items 1 y 2 se conservan los colores incluidos en el diseño, a partir del item 3 se generan de manera aleatoria
   switch (item) {
     case 'item1':
       rgb = 'rgb(217,85,248)';

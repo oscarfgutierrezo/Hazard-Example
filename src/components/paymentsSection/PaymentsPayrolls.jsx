@@ -8,6 +8,7 @@ export const PaymentsPayrolls = () => {
   // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
+  // Control sobre el filtro seleccionado
   const [filterSelected, setFilterSelected] = useState('without');
   
   // Filtrar array de nóminas en función del filtro seleccionado
@@ -24,36 +25,38 @@ export const PaymentsPayrolls = () => {
         <PaymentsDropdown filterSelected={ filterSelected } setFilterSelected={ setFilterSelected } />
       </div>
       <div className='col-span-2 pr-1 h-60 overflow-y-auto scrollbar'>
-      {
-        payrollsFiltered.map( payroll => {
-          const { id, fechaPago, facturas, proveedores, monto } = payroll;
-          return (
-            <div key={ id } className="p-3 pb-0">
-              <h4 className="pb-4 font-medium text-black-500">Facturas del {cutDate( fechaPago )}</h4>
-              <div className="pb-2 overflow-auto scrollbar">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr>
-                      <th className="payrolls-th">{ t("paymentsPayrolls.bills") }</th>
-                      <th className="payrolls-th">{ t("paymentsPayrolls.providers") }</th>
-                      <th className="payrolls-th">{ t("paymentsPayrolls.amount") }</th>
-                      <th className="payrolls-th">{ t("paymentsPayrolls.date") }</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className='payrolls-td'>{ facturas }</td>
-                      <td className='payrolls-td'>{ proveedores }</td>
-                      <td className='payrolls-td'>${ monto.toLocaleString() }</td>
-                      <td className='payrolls-td'>{ formatDate( fechaPago) }</td>
-                    </tr>
-                  </tbody>
-                </table>
+
+        { // Crear tablas  partir del array de nóminas filtradas
+          payrollsFiltered.map( payroll => {
+            const { id, fechaPago, facturas, proveedores, monto } = payroll;
+            return (
+              <div key={ id } className="p-3 pb-0">
+                <h4 className="pb-4 font-medium text-black-500">Facturas del {cutDate( fechaPago )}</h4>
+                <div className="pb-2 overflow-auto scrollbar">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr>
+                        <th className="payrolls-th">{ t("paymentsPayrolls.bills") }</th>
+                        <th className="payrolls-th">{ t("paymentsPayrolls.providers") }</th>
+                        <th className="payrolls-th">{ t("paymentsPayrolls.amount") }</th>
+                        <th className="payrolls-th">{ t("paymentsPayrolls.date") }</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className='payrolls-td'>{ facturas }</td>
+                        <td className='payrolls-td'>{ proveedores }</td>
+                        <td className='payrolls-td'>${ monto.toLocaleString() }</td>
+                        <td className='payrolls-td'>{ formatDate( fechaPago) }</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
-          )
-        })
-      }
+            )
+          })
+        }
+
       </div>
     </div>
   )

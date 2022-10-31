@@ -8,6 +8,7 @@ export const BillsSection = () => {
   // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
+  // Control sobre el estado de los modals
   const [isOpenedShowModal, setIsOpenedShowModal] = useState(false);
   const [isOpenedOrderModal, setIsOpenedOrderModal] = useState(false);
   
@@ -49,19 +50,22 @@ export const BillsSection = () => {
                 <th className="py-3 px-4 text-left whitespace-nowrap bg-lightpurple ">
                   <input type="checkbox" checked={ billsChecked.length === sortedTable.length } onChange={ handleCheckAll }/>
                 </th>
-                {
-                  mainData.tableData.columns.map( (option, index) => {
-                    const columns = t('billsSection.columns', { returnObjects: true});
-                    const column = columns[index]
-                    return (
-                    <th key={index} className="relative min-w-[110px] py-3 px-4 text-left whitespace-nowrap bg-lightpurple" >{column}</th>
-                    )
-                  })
-                }
+                
+                  { // Iterar sobre la data principal para crear las celdas del header de la tabla
+                    mainData.tableData.columns.map( (option, index) => {
+                      const columns = t('billsSection.columns', { returnObjects: true});
+                      const column = columns[index]
+                      return (
+                      <th key={index} className="relative min-w-[110px] py-3 px-4 text-left whitespace-nowrap bg-lightpurple" >{column}</th>
+                      )
+                    })
+                  }
+
               </tr>
             </thead>
             <tbody>
-              {
+
+              { // Iterar sobre la data principal para registrar la información de cada factura en la tabla
                 sortedTable.map( bill => {
                   const { folio, proveedor, tipo, monto, fechaPago } = bill
                   return (
@@ -76,6 +80,7 @@ export const BillsSection = () => {
                   )
                 })
               }
+              
             </tbody>
           </table>
         </div>

@@ -7,6 +7,7 @@ export const PaymentsCreditLine = () => {
   // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
+  // Control sobre el estado del modal
   const [isOpenedModal, setIsOpenedModal] = useState(false);
 
   // Controlar la línea de crédito

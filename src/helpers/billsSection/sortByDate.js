@@ -1,3 +1,5 @@
+// Comparar dos montos de dinero en formato dd/mm/aaaa
+
 import { compareItems } from '../../helpers';
 
 export const sortByDate = ( array, filter ) => {

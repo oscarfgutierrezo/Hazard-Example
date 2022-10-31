@@ -8,8 +8,10 @@ export const NavbarDropdown = () => {
   // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
+  // Control sobre el estado del dropdown
   const [isOpened, setIsOpened] = useState(false);
   
+  // Referenciar el botón que controla el despliegue del dropdown
   const buttonRef = useRef();
 
   // Abrir y cerrar el dropdown
@@ -28,10 +30,15 @@ export const NavbarDropdown = () => {
         <ArrowDownIcon/>
       </button>
       <ul className={`${isOpened ? 'max-h-40' : 'max-h-0'} absolute top-10 right-0 w-max px-3 overflow-hidden bg-white rounded-lg shadow-lg z-10 transition-all ease-in-out duration-500`}>
-        {
+        
+        { // Iterar para crear cada una de las notificaciones
           notifications.map( (notification, index) => {
             const { id, icon } = notification;
+
+            // Array con la descripción traducible de cada notificación
             const descriptions = t('navbarDropdown.notifications', { returnObjects: true});
+
+            // Asociar cada notificación con su correspondiente descripción traducible
             const description = descriptions[index]
             return (
               <li key={ id } className="my-1 py-1 px-3 text-black-500 border-b duration-300 cursor-pointer hover:text-pink hover:bg-lightpurple" onClick={ () => setIsOpened(false) }>
@@ -42,6 +49,7 @@ export const NavbarDropdown = () => {
             )
           })
         }
+
       </ul>
     </div>
   )

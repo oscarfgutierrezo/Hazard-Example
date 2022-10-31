@@ -7,6 +7,7 @@ export const PaymentsModalCreditLine = ({ isOpened, setIsOpened, creditLine, set
   // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
+  // Referenciar el contenedor del modal
   const modalRef = useRef();
 
   // Controlar el valor del input
@@ -45,10 +46,12 @@ export const PaymentsModalCreditLine = ({ isOpened, setIsOpened, creditLine, set
               <DollarIcon/>
             </div>
           </div>
-          {
-            (newCreditLine < creditLine) && 
-            <p className='text-center text-sm text-red-500'>{ t("paymentsModalCredit.alert") }</p>
-          }
+
+            { // Mostrar mensaje de alerta si la nueva línea de crédito es inferior a la actual 
+              (newCreditLine < creditLine) && 
+              <p className='text-center text-sm text-red-500'>{ t("paymentsModalCredit.alert") }</p>
+            }
+            
           <button type="submit" className="w-full py-1 px-5 text-white bg-purple/80 rounded-md duration-300 hover:bg-purple">{ t("paymentsModalCredit.save") }</button>
         </form>
       </div>

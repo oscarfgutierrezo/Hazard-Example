@@ -8,6 +8,7 @@ export const BillsOrderModal = ({ isOpened, setIsOpened, filterSelected, setFilt
   // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
+  // Referenciar el contenedor del modal
   const modalRef = useRef();
   
   // Control sobre los radio inputs
@@ -40,12 +41,14 @@ export const BillsOrderModal = ({ isOpened, setIsOpened, filterSelected, setFilt
         </button>
         <h3 className="pb-7 text-center text-xl font-medium text-black-700">{ t("billsSortModal.title") }</h3>
         <form className="text-sm text-black-700" onSubmit={ handleSubmit }>
-          {
+          
+          { // Iterar sobre las diferentes categorías para filtrar
             billsFilters.map( (filter, index) => (
               <div key={ index }>
                 <p className="font-medium text-black-500">{filter.category}</p>
                 <div className="pt-1 pb-4 grid grid-cols-2">
-                  {
+                  
+                  { // Para cada categoría se crean las dos opciones de ordenamiento
                     filter.options.map( option => {
                       const { key, name } = option;
                       return (
@@ -56,10 +59,12 @@ export const BillsOrderModal = ({ isOpened, setIsOpened, filterSelected, setFilt
                       )
                     })
                   }
+
                 </div>
               </div>
             ))
           }
+          
           <button type="submit" className="mt-5 w-full max-w-xs py-1 px-5 text-white bg-purple/80 rounded-md duration-300 hover:bg-purple">{ t("billsSortModal.sort") }</button>
         </form>
       </div>

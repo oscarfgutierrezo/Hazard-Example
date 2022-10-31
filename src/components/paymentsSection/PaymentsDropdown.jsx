@@ -8,8 +8,10 @@ export const PaymentsDropdown = ({ setFilterSelected, filterSelected }) => {
   // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
+  // Referenciar el botón que controla el despliegue del modal
   const buttonRef = useRef();
 
+  // Controlar el estado del modal
   const [ isOpened, setIsOpened ] = useState(false);
   
   // Abrir y cerrar el dropdown
@@ -32,11 +34,13 @@ export const PaymentsDropdown = ({ setFilterSelected, filterSelected }) => {
         <ArrowDownIcon/>
       </button>
       <div className={`${isOpened ? 'max-h-40 py-2' : 'max-h-0'} absolute top-8 right-0 left-0 px-3 overflow-hidden bg-white rounded-lg shadow-lg z-10 transition-all ease-in-out duration-500`}>
-        {
+
+        { // Iterar para crear las diferentes opciones de filtrado
           payrollsFilterOptions.map( ( option, index ) => (
             <button key={ index } className="w-full ml-2 py-1 text-left text-sm font-medium text-black-500" value={option} onClick={ handleOptionClick }>{ t( `paymentsDropdown.${option}` ) }</button>
           ))
         }
+        
       </div>
     </div>
   )

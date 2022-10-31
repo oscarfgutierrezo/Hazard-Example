@@ -7,6 +7,7 @@ export const BillsShowModal = ({ isOpened, setIsOpened, billsChecked, bills }) =
   // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
+  // Referenciar el contenedor del modal
   const modalRef = useRef();
   
   // Filtrar el array de facturas en función de los checkbox activos
@@ -27,12 +28,14 @@ export const BillsShowModal = ({ isOpened, setIsOpened, billsChecked, bills }) =
           <CloseIcon/>
         </button>
         <div className="max-h-96 flex flex-col gap-6 overflow-auto scrollbar">
-          {
+
+          { // Mostrar mensaje si no hay facturas seleccionadas
             (!billsForShow.length)
             ?
             <p className="py-10 text-center text-xl font-medium text-black-500">{ t("billsShowModal.message") }</p>
             :
-            billsForShow.map( bill => {
+
+            billsForShow.map( bill => { // Iterar sobre el array de facturas seleccionadas
               const { folio, proveedor, tipo, monto, fechaPago } = bill;
               return (
                 <div key={ folio } className="text-black-300">
@@ -50,7 +53,9 @@ export const BillsShowModal = ({ isOpened, setIsOpened, billsChecked, bills }) =
                 </div>
               )
             })
+            
           }
+
         </div>
       </div>
     </div>

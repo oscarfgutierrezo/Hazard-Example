@@ -1,3 +1,5 @@
+// Información para cada una de las opciones de navegación a mostrar en el navbar y el sidebar
+
 import { HomeIcon, NotebookIcon, CardIcon, BagMoneyIcon } from '../icons';
 
 export const itemsNavigation = [

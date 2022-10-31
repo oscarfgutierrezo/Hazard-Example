@@ -1,3 +1,5 @@
+// Comparar dos montos de dinero en formato $xxx.xxx.xxx
+
 import { compareItems } from '../../helpers';
 
 export const sortByAmount = ( array, filter ) => {

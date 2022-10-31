@@ -1,3 +1,5 @@
+// Comparar dos strings que contienen mayúsculas y minúsculas
+
 import { compareItems } from '../../helpers';
 
 export const sortByProvider = ( array, filter ) => {

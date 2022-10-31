@@ -1,7 +1,8 @@
 export const ChartItemsList = ({ itemsChecked }) => {
   return (
     <div className="flex flex-wrap justify-center gap-y-2 gap-x-5">
-      {
+      
+      { // Iterar sobre el array de items seleccionados para mostrar las convenciones de colores sobre la gráfica
         itemsChecked.map( item => {
           const { id, color } = item;
           return (
@@ -12,6 +13,7 @@ export const ChartItemsList = ({ itemsChecked }) => {
           )
         })
       }
+      
     </div>
   )
 }

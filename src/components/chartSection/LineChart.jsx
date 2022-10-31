@@ -7,12 +7,19 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
 
 export const LineChart = ({ itemsChecked }) => {
+  // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
+
+  // Array con los meses traducibles
   var months = t('lineChart.months', { returnObjects: true});
 
   // Estado para controlar los datos a mostrar en la gráfica
   const [userData, setUserData] = useState({
+
+    // Crear los labels de la tabla asociando cada mes en la data principal con el correspondiente en el array de meses traducibles
     labels: mainData.chartData.labels.map( (month, index) => months[index] ),
+
+    // Iterar sobre los items seleccionados para dibujar la información en la gráfica
     datasets: itemsChecked.map( item => {
       const { name, data, color, backgroundColor } = item;
       return (
@@ -31,7 +38,7 @@ export const LineChart = ({ itemsChecked }) => {
     })
   })
 
-  // Redibujar la gráfica si el array de items seleccionados cambia (itemsChecked)
+  // Redibujar la gráfica si el array de items seleccionados o el idioma cambian
   useEffect(() => {
     setUserData(
       {

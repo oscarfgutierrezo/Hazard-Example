@@ -1,5 +1,7 @@
+// Opciones para filtrar las facturas en la sección de nóminas
 export const payrollsFilterOptions = [ 'reviced', 'under', 'without' ]
 
+// Información de las facturas a mostrar en la sección de nóminas
 export const payrollsData = [
   {
     id: 1,

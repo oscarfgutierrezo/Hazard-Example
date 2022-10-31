@@ -4,6 +4,7 @@ import { sortByFolio, sortByProvider, sortByType, sortByAmount, sortByDate } fro
 export const useSortTable = ( array, filter ) => {
   const [sortedTable, setSortedTable] = useState(array);
   
+  // Ejecutar una de las funciones para reordenar el array de acuerdo al filtro seleccionado
   useEffect(() => {
     switch (filter) {
       case 'folio-asc':

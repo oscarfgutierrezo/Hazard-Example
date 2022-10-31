@@ -13,7 +13,9 @@ export const App = () => {
           <section className="col-span-5 self-end lg:col-span-3 lg:order-3">
             <BillsSection/>
           </section>
-          <PaymentsSection/>
+          <section className='col-span-5 lg:col-span-2 lg:row-span-2 lg:order-2'>
+            <PaymentsSection/>
+          </section>
         </div>
       </div>
     </div>

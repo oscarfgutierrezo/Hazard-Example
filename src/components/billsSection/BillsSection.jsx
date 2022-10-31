@@ -5,7 +5,7 @@ import { useSortTable, useCheckedBills } from '../../hooks';
 
 export const BillsSection = () => {
   const [isOpenedShowModal, setIsOpenedShowModal] = useState(false);
-  const [orderModalIsOpened, setOrderModalIsOpened] = useState(false);
+  const [isOpenedOrderModal, setIsOpenedOrderModal] = useState(false);
   
   // Control del filtro usado para ordenar los elementos de la tabla
   const [filterSelected, setFilterSelected] = useState('folio-asc');
@@ -23,7 +23,7 @@ export const BillsSection = () => {
 
   // Abrir y cerrar el modal que muestra las opciones para ordenar la tabla
   const handleOrderModalBtnClick = () => {
-    setOrderModalIsOpened(!orderModalIsOpened)
+    setIsOpenedOrderModal(!isOpenedOrderModal)
   };
   
   return (
@@ -69,7 +69,7 @@ export const BillsSection = () => {
           </table>
         </div>
       </div>
-      <BillsOrderModal isOpened={ orderModalIsOpened } setIsOpened={ setOrderModalIsOpened } filterSelected={ filterSelected} setFilterSelected={ setFilterSelected }/>
+      <BillsOrderModal isOpened={ isOpenedOrderModal } setIsOpened={ setIsOpenedOrderModal } filterSelected={ filterSelected} setFilterSelected={ setFilterSelected }/>
       <BillsShowModal isOpened={ isOpenedShowModal } setIsOpened={ setIsOpenedShowModal } billsChecked={ billsChecked } bills={ sortedTable } />
     </>
   )

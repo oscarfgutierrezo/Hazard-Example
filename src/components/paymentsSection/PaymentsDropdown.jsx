@@ -1,31 +1,37 @@
-import { useRef, useState } from "react";
-import { useClickOutside } from "../../hooks";
+import { useRef, useState } from 'react';
+import { payrollsFilterOptions } from '../../data';
+import { useClickOutside } from '../../hooks';
 import { ArrowDownIcon } from '../../icons';
 
 export const PaymentsDropdown = ({ setFilterSelected, filterSelected }) => {
+  const buttonRef = useRef();
   const [ isOpened, setIsOpened ] = useState(false);
-  const ref = useRef();
+  
+  // Abrir y cerrar el dropdown
+  const handleButtonClick = () => {
+    setIsOpened(!isOpened);
+  };
 
-  const handleSelected = ({ target }) => {
+  // Modificar el filtro y cerrar el modal al seleccionar una de las opciones
+  const handleOptionClick = ({ target }) => {
     setFilterSelected(target.value);
     setIsOpened(false)
   }
 
-  const handleToggleDropdown = () => {
-    setIsOpened(!isOpened);
-  };
-
-  useClickOutside( ref, () => setIsOpened(false) );
+  // Cerrar el dropdown al hacer click por fuera de buttonRef
+  useClickOutside( buttonRef, () => setIsOpened(false) );
   
   return (
     <div className='relative'>
-      <button ref={ ref } type="button" className="w-60 px-3 py-0.5 flex justify-between items-center gap-5 text-sm font-medium text-black-500 border-2 border-black-300 rounded-md xl:w-52" onClick={ handleToggleDropdown }>{filterSelected}
+      <button ref={ buttonRef } type="button" className="w-60 py-0.5 px-3 flex justify-between items-center gap-5 text-sm font-medium text-black-500 border-2 border-black-300 rounded-md xl:w-52" onClick={ handleButtonClick }>{filterSelected}
         <ArrowDownIcon/>
       </button>
-      <div className={`${isOpened ? 'max-h-40 py-2' : 'max-h-0'} absolute top-8 left-0 right-0 px-3 bg-white rounded-lg shadow-lg z-10 transition-all duration-500 overflow-hidden ease-in-out`}>
-        <button className="ml-2 py-1 text-sm font-medium text-black-500" value='Revisadas' onClick={ handleSelected }>Revisadas</button>
-        <button className="ml-2 py-1 text-sm font-medium text-black-500" value='En proceso de revisión' onClick={ handleSelected }>En proceso de revisión</button>
-        <button className="ml-2 py-1 text-sm font-medium text-black-500" value='Pendientes por revisar' onClick={ handleSelected }>Pendientes por revisar</button>
+      <div className={`${isOpened ? 'max-h-40 py-2' : 'max-h-0'} absolute top-8 right-0 left-0 px-3 overflow-hidden bg-white rounded-lg shadow-lg z-10 transition-all ease-in-out duration-500`}>
+        {
+          payrollsFilterOptions.map( option => (
+            <button className="ml-2 py-1 text-sm font-medium text-black-500" value={option} onClick={ handleOptionClick }>{option}</button>
+          ))
+        }
       </div>
     </div>
   )

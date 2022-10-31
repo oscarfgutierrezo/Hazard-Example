@@ -13,7 +13,7 @@ export const BillsShowModal = ({ isOpened, setIsOpened, billsChecked, bills }) =
     setIsOpened(false)
   }
 
-  // Cerrar el modal al hacer click por fuera de modalRef
+  // Ejecutar función handleClick al hacer click por fuera de modalRef
   useClickOutside( modalRef, () => handleClick() );
     
   return (

@@ -25,7 +25,7 @@ export const BillsOrderModal = ({ isOpened, setIsOpened, filterSelected, setFilt
     setIsOpened(false);
   }
 
-  // Cerrar el modal al hacer click por fuera de modalRef
+  // Ejecutar la función resetRadioSelected al hacer click por fuera de modalRef
   useClickOutside( modalRef, () => resetRadioSelected() );
 
   return (

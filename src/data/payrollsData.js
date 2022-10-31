@@ -1,3 +1,5 @@
+export const payrollsFilterOptions = [ 'Revisadas', 'En proceso de revisión', 'Pendientes por revisar' ]
+
 export const payrollsData = [
   {
     facturas: 238,

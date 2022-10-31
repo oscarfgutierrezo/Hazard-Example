@@ -12,7 +12,7 @@ export const NavbarDropdown = () => {
     setIsOpened(!isOpened);
   }
 
-  // Cerrar el menú al hacer click por fuera de buttonRef
+  // Cerrar el dropdown al hacer click por fuera de buttonRef
   useClickOutside( buttonRef, () => setIsOpened(false) );
   
   return (

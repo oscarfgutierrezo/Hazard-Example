@@ -3,22 +3,27 @@ import { PaymentsModalCreditLine, PaymentProgressBar } from '../../components';
 import { creditOperations, formatNumber } from '../../helpers';
 
 export const PaymentsCreditLine = () => {
-  const [modalIsOpened, setModalIsOpened] = useState(false);
+  const [isOpenedModal, setIsOpenedModal] = useState(false);
+
+  // Controlar la línea de crédito
   const [creditLine, setCreditLine] = useState(150000000);
-  const creditSpent = 150000000
+  const creditSpent = 150000000;
+
+  // Obtener crédito disponible y porcentaje de crédito consumido
   const { creditAvailable, percentCreditSpent } = creditOperations(creditLine, creditSpent);
 
-  const handleToggleModal = () => {
-    setModalIsOpened(!modalIsOpened);
+  // Abrir el modal para modificar la línea de crédito
+  const handleClick = () => {
+    setIsOpenedModal(!isOpenedModal);
   };
   
   return (
     <>
-      <div className="pb-7 grid grid-cols-2 gap-3">
-        <h3 className="col-span-2 text-center text-black-700 font-medium sm:text-start lg:text-center xl:text-start">Linea de crédito</h3>
+      <div className="grid grid-cols-2 gap-3">
+        <h3 className="col-span-2 text-center font-medium text-black-700 sm:text-start lg:text-center xl:text-start">Linea de crédito</h3>
         <p className="col-span-2 text-center text-2xl font-bold text-pink sm:col-span-1 sm:text-start lg:col-span-2 lg:text-center xl:col-span-1 xl:text-start">${formatNumber(creditLine)}</p>
         <div className="col-span-2 justify-self-center sm:col-span-1 sm:justify-self-end lg:col-span-2 lg:justify-self-center xl:col-span-1 xl:justify-self-end">
-          <button type="button" className="w-60 py-1 px-3 text-sm text-white bg-purple/80 rounded-md hover:bg-purple duration-300 sm:w-max lg:w-60 xl:w-max" onClick={ handleToggleModal }>Incrementar línea</button>
+          <button type="button" className="w-60 py-1 px-3 text-sm text-white bg-purple/80 rounded-md duration-300 hover:bg-purple sm:w-max lg:w-60 xl:w-max" onClick={ handleClick }>Incrementar línea</button>
         </div>
         <div className="col-span-2">
           <div className="p-4 grid grid-cols-2 border rounded-lg">
@@ -35,7 +40,7 @@ export const PaymentsCreditLine = () => {
           </div>
         </div>
       </div>
-      <PaymentsModalCreditLine isOpened={ modalIsOpened } setIsOpened={ setModalIsOpened } setCreditLine={ setCreditLine } creditLine={ creditLine } />
+      <PaymentsModalCreditLine isOpened={ isOpenedModal } setIsOpened={ setIsOpenedModal } setCreditLine={ setCreditLine } creditLine={ creditLine } />
     </>
   )
 }

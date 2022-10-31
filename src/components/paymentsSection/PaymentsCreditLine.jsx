@@ -9,7 +9,7 @@ export const PaymentsCreditLine = () => {
   const [creditLine, setCreditLine] = useState(150000000);
   const creditSpent = 150000000;
 
-  // Obtener crédito disponible y porcentaje de crédito consumido
+  // Obtener crédito disponible y porcentaje que representa el crédito consumido
   const { creditAvailable, percentCreditSpent } = creditOperations(creditLine, creditSpent);
 
   // Abrir el modal para modificar la línea de crédito

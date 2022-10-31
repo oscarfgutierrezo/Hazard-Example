@@ -2,7 +2,7 @@ import { itemsNavigation } from '../../data';
 import { useTranslation } from 'react-i18next';
 
 export const NavbarCollapsibleMenu = ({ isOpened }) => {
-  // Control sobre el idioma seleccionado
+  // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
 
   return (

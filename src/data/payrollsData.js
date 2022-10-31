@@ -1,4 +1,4 @@
-export const payrollsFilterOptions = [ 'Revisadas', 'En proceso de revisión', 'Pendientes por revisar' ]
+export const payrollsFilterOptions = [ 'reviced', 'under', 'without' ]
 
 export const payrollsData = [
   {
@@ -7,7 +7,7 @@ export const payrollsData = [
     proveedores: 32,
     monto: 148017159,
     fechaPago: '07 Octubre, 2021',
-    estado: 'En proceso de revisión'
+    estado: 'under'
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const payrollsData = [
     proveedores: 34,
     monto: 663862159,
     fechaPago: '12 Octubre, 2021',
-    estado: 'En proceso de revisión'
+    estado: 'under'
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ export const payrollsData = [
     proveedores: 39,
     monto: 238086159,
     fechaPago: '15 Octubre, 2021',
-    estado: 'Pendientes por revisar'
+    estado: 'without'
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ export const payrollsData = [
     proveedores: 33,
     monto: 200817922,
     fechaPago: '17 Octubre, 2021',
-    estado: 'Pendientes por revisar'
+    estado: 'without'
   },
   {
     id: 5,
@@ -39,7 +39,7 @@ export const payrollsData = [
     proveedores: 29,
     monto: 234072192,
     fechaPago: '02 Octubre, 2021',
-    estado: 'Revisadas'
+    estado: 'reviced'
   },
   {
     id: 6,
@@ -47,6 +47,6 @@ export const payrollsData = [
     proveedores: 25,
     monto: 343817923,
     fechaPago: '05 Octubre, 2021',
-    estado: 'Revisadas'
+    estado: 'reviced'
   },
 ]

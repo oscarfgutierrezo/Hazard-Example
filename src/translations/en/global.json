@@ -66,5 +66,17 @@
     "newLine": "New Credit Line",
     "save": "Save",
     "alert": "It is recommended not decrease the credit line"
+  },
+  "paymentsPayrolls": {
+    "myPayrolls": "My payrolls",
+    "bills": "Bills",
+    "providers": "Providers",
+    "amount": "Amount",
+    "date": "Payment date"
+  },
+  "paymentsDropdown": {
+    "reviced": "Reviced",
+    "without": "Without revising",
+    "under": "Under revision"
   }
 }

@@ -5,7 +5,7 @@ import { useSortTable, useCheckedBills } from '../../hooks';
 import { useTranslation } from 'react-i18next';
 
 export const BillsSection = () => {
-  // Control sobre el idioma seleccionado
+  // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
   const [isOpenedShowModal, setIsOpenedShowModal] = useState(false);

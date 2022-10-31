@@ -2,7 +2,7 @@ import { PaymentsCreditLine, PaymentsPayrolls } from '../../components';
 import { useTranslation } from 'react-i18next';
 
 export const PaymentsSection = () => {
-  // Control sobre el idioma seleccionado
+  // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
   return (

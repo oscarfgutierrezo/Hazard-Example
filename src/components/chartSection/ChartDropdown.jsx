@@ -4,7 +4,7 @@ import { ArrowDownIcon } from "../../icons";
 import { useTranslation } from 'react-i18next';
 
 export const ChartDropdown = ({ items, itemsChecked, onItemsChecked }) => {
-  // Control sobre el idioma seleccionado
+  // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
   const [ isOpened, setIsOpened ] = useState(false);

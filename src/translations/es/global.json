@@ -65,5 +65,17 @@
     "newLine": "Nueva Línea de crédito",
     "save": "Guardar",
     "alert": "Se sugiere no disminuir la línea de crédito"
+  },
+  "paymentsPayrolls": {
+    "myPayrolls": "Mis nóminas",
+    "bills": "Facturas",
+    "providers": "Proveedores",
+    "amount": "Monto",
+    "date": "Fecha de pago"
+  },
+  "paymentsDropdown": {
+    "reviced": "Revisadas",
+    "without": "Pendientes por revisar",
+    "under": "En proceso de revisión"
   }
 }

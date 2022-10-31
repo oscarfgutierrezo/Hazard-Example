@@ -4,7 +4,7 @@ import { CloseIcon } from '../../icons';
 import { useTranslation } from 'react-i18next';
 
 export const BillsShowModal = ({ isOpened, setIsOpened, billsChecked, bills }) => {
-  // Control sobre el idioma seleccionado
+  // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
   const modalRef = useRef();

@@ -4,7 +4,7 @@ import { CloseIcon, DollarIcon } from '../../icons';
 import { useTranslation } from 'react-i18next';
 
 export const PaymentsModalCreditLine = ({ isOpened, setIsOpened, creditLine, setCreditLine }) => {
-  // Control sobre el idioma seleccionado
+  // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
   const modalRef = useRef();

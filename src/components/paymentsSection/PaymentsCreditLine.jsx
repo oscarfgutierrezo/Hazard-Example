@@ -4,7 +4,7 @@ import { creditOperations, formatNumber } from '../../helpers';
 import { useTranslation } from 'react-i18next';
 
 export const PaymentsCreditLine = () => {
-  // Control sobre el idioma seleccionado
+  // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
   const [isOpenedModal, setIsOpenedModal] = useState(false);

@@ -5,7 +5,7 @@ import { ChartItemsList, ChartDropdown, LineChart } from '../../components';
 import { useTranslation } from 'react-i18next';
 
 export const ChartSection = () => {
-  // Control sobre el idioma seleccionado
+  // Referencia al idioma seleccionado
   const [t] = useTranslation('global');
   
   // Construir data con las propiedades necesarias para dibujar la gráfica

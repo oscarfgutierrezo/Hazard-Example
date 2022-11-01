@@ -30,21 +30,22 @@ export const Navbar = () => {
         <img src="https://i.ibb.co/dpzvnbS/logo.png" alt="Logo" />
       </div>
       <div className="col-span-1 justify-self-end order-1 sm:col-span-2 sm:order-2 md:col-span-1">
-        <div className='flex items-center gap-2 sm:gap-4'>
+        <div className='flex items-center gap-2 sm:gap-4 md:gap-2 lg:gap-4'>
           <NavbarDropdown/>
-          
-          { // Renderizado condicional del botón en función del idioma seleccionado
-            (i18n.resolvedLanguage === 'es') 
-            ?
-              <button className='h-7 w-auto overflow-hidden rounded-full' onClick={ () => i18n.changeLanguage('en') }>
-                <BritishFlag/>
-              </button>
-            :
-              <button className='h-7 w-auto overflow-hidden rounded-full' onClick={ () => i18n.changeLanguage('es') }>
-                <SpanishFlag/>
-              </button>
-          }
-          
+          <div className='relative group flex '>
+            { // Renderizado condicional del botón en función del idioma seleccionado
+              (i18n.resolvedLanguage === 'es') 
+              ?
+                <button className='h-7 w-auto overflow-hidden rounded-full' onClick={ () => i18n.changeLanguage('en') }>
+                  <SpanishFlag/>
+                </button>
+              :
+                <button className='h-7 w-auto overflow-hidden rounded-full' onClick={ () => i18n.changeLanguage('es') }>
+                  <BritishFlag/>
+                </button>
+            }
+            <span className="absolute -translate-x-1/2 top-8 left-1/2 w-20 px-2 text-center text-sm text-black-500 bg-white opacity-0 border rounded-lg shadow duration-300 group-hover:opacity-100">{ t("navbar.language") }</span>
+          </div>
           <button ref={ buttonRef } type="button" className="p-1 rounded-md duration-300 hover:bg-black-300/20 md:hidden" onClick={ handleClick }>
             <HamburgerIcon/>
           </button>

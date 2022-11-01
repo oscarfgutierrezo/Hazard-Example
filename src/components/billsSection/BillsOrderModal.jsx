@@ -43,26 +43,33 @@ export const BillsOrderModal = ({ isOpened, setIsOpened, filterSelected, setFilt
         <form className="text-sm text-black-700" onSubmit={ handleSubmit }>
           
           { // Iterar sobre las diferentes categorías para filtrar
-            billsFilters.map( (filter, index) => (
-              <div key={ index }>
-                <p className="font-medium text-black-500">{filter.category}</p>
-                <div className="pt-1 pb-4 grid grid-cols-2">
-                  
-                  { // Para cada categoría se crean las dos opciones de ordenamiento
-                    filter.options.map( option => {
-                      const { key, name } = option;
-                      return (
-                        <div key={ key }>
-                          <input type="radio" name="filter-selected" value={ key } id={ key } checked={ radioSelected === key } onChange={ handleSelect }/>
-                          <label className="pl-1" htmlFor={ key }>{ t(`billsSortModal.${name}`) }</label>
-                        </div>
-                      )
-                    })
-                  }
+            billsFilters.map( (filter, index) => {
+              // Array con los filtros traducibles de las opciones de navegación
+              const filters = t('billsSortModal.filters', { returnObjects: true});
 
+              // Asociar cada item de navegación con su correspondiente nombre traducible
+              const name = filters[index];
+              return (
+                <div key={ index }>
+                  <p className="font-medium text-black-500">{name}</p>
+                  <div className="pt-1 pb-4 grid grid-cols-2">
+                    
+                    { // Para cada categoría se crean las dos opciones de ordenamiento
+                      filter.options.map( option => {
+                        const { key, name } = option;
+                        return (
+                          <div key={ key }>
+                            <input type="radio" name="filter-selected" value={ key } id={ key } checked={ radioSelected === key } onChange={ handleSelect }/>
+                            <label className="pl-1" htmlFor={ key }>{ t(`billsSortModal.${name}`) }</label>
+                          </div>
+                        )
+                      })
+                    }
+
+                  </div>
                 </div>
-              </div>
-            ))
+              )
+            })
           }
           
           <button type="submit" className="mt-5 w-full max-w-xs py-1 px-5 text-white bg-purple/80 rounded-md duration-300 hover:bg-purple">{ t("billsSortModal.sort") }</button>

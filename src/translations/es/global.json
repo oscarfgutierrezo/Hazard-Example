@@ -3,7 +3,8 @@
     "hello": "Hola",
     "have": "Tienes",
     "alerts": "{{quantity}} alertas",
-    "waiting": "esperando por ti"
+    "waiting": "esperando por ti",
+    "language": "Change to English"
   },
   "navbarDropdown": {
     "notifications": ["Notificación 1", "Notificación 2", "Notificación 3"]
@@ -42,6 +43,7 @@
   },
   "billsSortModal": {
     "title": "Ordenar facturas por",
+    "filters": ["N° Folio", "Proveedor", "Tipo", "Monto", "Fecha de pago"],
     "ascending": "Ascendente",
     "descending": "Descendente",
     "transferred": "Cedida",
